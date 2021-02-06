@@ -1,5 +1,5 @@
 import Main from '../components/Main'
-import Button from '../components/Button'
+import Button from '../components/form/Button'
 import Link from 'next/link'
 
 export default function Home() {
@@ -18,7 +18,7 @@ export default function Home() {
 
         <Link href="/onboarding">
           <a>
-            <Button text="Check our Prices" type="primary promo" className="mt-4" />
+            <Button text="Check our Prices" type="primary promo" />
           </a>
         </Link>
       </div>
