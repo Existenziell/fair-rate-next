@@ -1,21 +1,25 @@
-# Next.js + Tailwind CSS Example
+# FairRate
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) (v2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
 
-## Deploy your own
+## URLs
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+Vercel:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+Netlify:
 
-## How to use
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+## Tech
 
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-# or
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-```
+- Based on template: [NextJs with Tailwind](https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss)
+- [Nextjs](https://nextjs.org/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [HeroIcons](https://heroicons.com/)
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+## Resources
+
+- https://console.firebase.google.com/project/fairrate-72b4a/overview
+- https://dashboard.fauna.com/db/FairRate
+
+- https://www.lemonade.com/start/12
+- https://singlefamily.fanniemae.com/media/15171/display
+- https://plaid.com/
