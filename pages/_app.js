@@ -1,7 +1,16 @@
-import '../styles/globals.css'
+import { AppWrapper } from '../context/state'
+import Head from '../components/Head'
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+import '../styles/globals.css'
+import '../styles/navbar.css'
+
+function FairRate({ Component, pageProps }) {
+  return (
+    <AppWrapper>
+      <Head />
+      <Component {...pageProps} />
+    </AppWrapper>
+  )
 }
 
-export default MyApp
+export default FairRate

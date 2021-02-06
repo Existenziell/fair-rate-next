@@ -6,7 +6,14 @@ module.exports = {
 
   // Where you define your color palette, fonts, type scale, border sizes, breakpoints — anything related to the visual design of your site.
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'open-sans': '"Open Sans", Helvetica, Arial, sans-serif',
+      },
+      textColor: {
+        'gray-999': '#999',
+      },
+    },
   },
 
   // Lets you control which variants are generated for each core utility plugin.

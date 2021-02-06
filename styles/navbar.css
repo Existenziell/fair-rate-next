@@ -1,0 +1,170 @@
+/* https://www.aleksandrhovhannisyan.com/blog/responsive-navbar-without-bootstrap/ */
+
+:root {
+  --brand:rgb(255, 0, 131);
+}
+
+.navbar-link.active {
+  color: var(--brand);
+}
+
+.home-link,
+.navbar-link {
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  transition: color 0.2s ease-in-out;
+}
+
+.navbar-link:focus,
+.navbar-link:hover {
+  color: var(--brand);
+}
+
+.navbar-logo {
+  width: 168px;
+  height: 50px;
+}
+
+.navbar-toggle {
+  display: none;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.icon-bar {
+  display: block;
+  width: 30px;
+  height: 3px;
+  margin: 2px;
+  transition: background-color 0.2s ease-in-out,
+              opacity 0.2s ease-in-out;
+  background-color: var(--brand);
+}
+
+.icon-bar:first-of-type {
+  width: 15px;
+  position: relative;
+  left: -8px;
+}
+
+.icon-bar:last-of-type {
+  width: 15px;
+  position: relative;
+  left: 8px;
+}
+
+.navbar-toggle:focus .icon-bar,
+.navbar-toggle:hover .icon-bar {
+  background-color: var(--brand);
+}
+
+#navbar.opened .navbar-toggle .icon-bar:first-child,
+#navbar.opened .navbar-toggle .icon-bar:last-child {
+  margin: 0;
+  width: 30px;
+}
+
+#navbar.opened .navbar-toggle .icon-bar:first-child {
+  transform: translate3d(10px, 5px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(45deg) skew(0deg, 0deg);
+  transform-style: preserve-3d;
+}
+
+#navbar.opened .navbar-toggle .icon-bar:nth-child(2) {
+  opacity: 0;
+}
+
+#navbar.opened .navbar-toggle .icon-bar:last-child {
+  transform: translate3d(-5px, -5px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(-45deg) skew(0deg, 0deg);
+  transform-style: preserve-3d;
+}
+
+.navbar-menu {
+  top: var(--navbar-height);
+  bottom: 0;
+  transition: opacity 0.2s ease-in-out,
+              visibility 0.2s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+  left: 0;
+  right: 0;
+}
+
+#navbar.opened .navbar-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+.navbar-links {
+  list-style-type: none;
+  max-height: 0;
+  overflow: hidden;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  left: 0;
+  right: 0;
+  margin: 1.4rem;
+  border-radius: 5px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+#navbar.opened .navbar-links {
+  padding: 1em;
+  max-height: none;
+  background-color: white;
+  z-index: 99;
+  margin-top: 40px;
+}
+
+#navbar.opened .navbar-link {
+  width: 100vw;
+  display: block;
+  text-align: center;
+  padding: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  
+  .navbar-toggle {
+    display: none;
+  }
+  
+  #navbar .navbar-menu,
+  #navbar.opened .navbar-menu {
+    visibility: visible;
+    opacity: 1;
+    display: block;
+    height: 100%;
+  }
+
+  #navbar .navbar-links,
+  #navbar.opened .navbar-links {
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    position: static;
+    flex-direction: row;
+    list-style-type: none;
+    max-height: max-content;
+    width: 90%;
+    height: 100%;
+  }
+
+  #navbar.opened .navbar-link {
+    width: 100vw;
+  }
+
+  #navbar .navbar-link:last-child {
+    margin-right: 0;
+  }
+}

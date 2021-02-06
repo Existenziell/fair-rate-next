@@ -10,7 +10,7 @@ Netlify:
 
 ## Tech
 
-- Based on template: [NextJs with Tailwind](https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss)
+- [Based on  this template](https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss)
 - [Nextjs](https://nextjs.org/)
 - [TailwindCSS](https://tailwindcss.com/)
 - [HeroIcons](https://heroicons.com/)
