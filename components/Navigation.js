@@ -44,7 +44,7 @@ export default function Navigation(props) {
     <nav id='navbar' className='flex justify-between items-center border-b p-4 sticky top-0 bg-gray-50'>
 
       <div className="w-1/3">
-        <ul className='min-w-90 md:min-w-full navbar-links flex flex-auto justify-between'>
+        <ul className='min-w-90 md:min-w-90 navbar-links flex flex-auto justify-between'>
           {links.map((value, index) => {
             let l = `/${value.toLowerCase()}`
             return (
@@ -65,7 +65,7 @@ export default function Navigation(props) {
       </div>
 
       <Link href='/'>
-        <a className='home-link w-4/12 flex justify-center'>
+        <a className='w-4/12 flex justify-center'>
           <Image
             src='/icons/logo.png'
             alt='FairRate Logo'
@@ -76,9 +76,12 @@ export default function Navigation(props) {
       </Link>
 
       <Link href='/account'>
-        <a className='home-link w-4/12 flex justify-end'>
-          My Account
-          </a>
+        <a className='navbar-link w-4/12 flex justify-end'>
+          <span>My Account</span>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+          </svg>
+        </a>
       </Link>
     </nav>
   )

@@ -9,7 +9,8 @@
 }
 
 .home-link,
-.navbar-link {
+.navbar-link,
+.navbar-link span {
   font-family: 'Lato', sans-serif;
   font-size: 14px;
   font-weight: 600;
@@ -20,6 +21,14 @@
 .navbar-link:focus,
 .navbar-link:hover {
   color: var(--brand);
+}
+
+.navbar-link span {
+  display: none;
+}
+
+.navbar-link svg {
+  width: 35px;
 }
 
 .navbar-logo {
@@ -162,6 +171,14 @@
 
   #navbar.opened .navbar-link {
     width: 100vw;
+  }
+
+  .navbar-link svg {
+    display: none;
+  }
+
+  .navbar-link span {
+    display: block;
   }
 
   #navbar .navbar-link:last-child {

@@ -1,5 +1,5 @@
 const Button = ({ text, size, type }) => {
-  console.log(text, type);
+
   return (
     <>
       <button

@@ -1,8 +1,6 @@
-import Head from 'next/head'
 import Main from '../components/Main'
 import Button from '../components/Button'
 import Link from 'next/link'
-import Image from 'next/image'
 
 export default function Home() {
   return (
@@ -18,7 +16,11 @@ export default function Home() {
           Instant everything. Incredible prices. Big heart.
         </p>
 
-        <Button text="Check our Prices" type="primary promo" className="mt-4" />
+        <Link href="/onboarding">
+          <a>
+            <Button text="Check our Prices" type="primary promo" className="mt-4" />
+          </a>
+        </Link>
       </div>
     </Main>
   )
