@@ -20,7 +20,7 @@ export default function Step2({ onChange, setError, formData }) {
 
   return (
     <>
-      <h1 className="text-base text-gray-400">I. Type of mortgage and terms of loan</h1>
+      <h1 className="text-base text-gray-400 mt-6">I. Type of mortgage and terms of loan</h1>
       <h2 className="my-8 text-2xl">Mortgage Applied for:</h2>
       <RadioButtons
         name={"mortgageType"}

@@ -14,7 +14,7 @@ export default function Step1({ onChange, setError, formData }) {
   return (
     <>
       <h1>Hey welcome!</h1>
-      <h2>Do you already have a FairRate account?</h2>
+      <h2 className="my-6">Do you already have a FairRate account?</h2>
       <RadioButtons
         values={["Yes", "Nope"]}
         name={"accountExists"}

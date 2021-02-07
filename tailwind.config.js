@@ -6,13 +6,22 @@ module.exports = {
 
   // Where you define your color palette, fonts, type scale, border sizes, breakpoints — anything related to the visual design of your site.
   theme: {
+
     extend: {
+
       fontFamily: {
         'open-sans': '"Open Sans", Helvetica, Arial, sans-serif',
       },
+
       textColor: {
         'gray-999': '#999',
       },
+
+      colors: {
+        'brand-lighter': 'var(--color-brand)',
+        'brand': 'var(--color-brand)',
+        'brand-dark': 'var(--color-brand)',
+      }
     },
   },
 

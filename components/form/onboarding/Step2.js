@@ -15,7 +15,7 @@ export default function Step2({ onChange, setError, formData }) {
   return (
     <>
       <h1>Your data</h1>
-      <h2>Do you want us to retrieve your data now?</h2>
+      <h2 className="my-6">Do you want us to retrieve your data now?</h2>
       <RadioButtons
         name={"retrieveData"}
         values={["Yes", "No, later please"]}

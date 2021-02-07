@@ -38,6 +38,7 @@ export default function ApplyForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    Router.push('/success/')
     // const form = document.forms[0]
     // if (form.checkValidity()) {
     //   setFormButtonDisabled(true)
