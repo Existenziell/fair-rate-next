@@ -2,21 +2,26 @@ import RadioButtons from '../RadioButtons'
 
 export default function Step2({ onChange, setError, formData }) {
 
-  const checkedYes = formData.patientFunded === "Yes"
-  const checkedNo = formData.patientFunded === "No"
-
   const validate = (e) => {
-    e.target.value !== "Yes" ?
-      setError("Please acknowledge the above statement in order to continue.") :
+    if (e.target.value !== "Yes") {
+      // get data...
+      setError("Please acknowledge the above statement in order to continue.")
+    } else {
       setError("")
-    onChange(e)
+      onChange(e)
+    }
   }
 
   return (
     <>
-      <h1>Hey welcome!</h1>
-      <h2>Do you already have a FairRate account?</h2>
-      <RadioButtons values={["Yes", "Nope"]} name={"account-exists"} onChange={onChange} />
+      <h1>Your data</h1>
+      <h2>Do you want us to retrieve your data now?</h2>
+      <RadioButtons
+        name={"retrieveData"}
+        values={["Yes", "No, later please"]}
+        checked={formData.retrieveData}
+        onChange={onChange}
+      />
     </>
   )
 }

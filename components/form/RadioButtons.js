@@ -3,7 +3,7 @@ const RadioButtons = ({ values, name, onChange, checked }) => {
     <>
       {values.map((value, index) => {
         return (
-          <label htmlFor={value} className="my-4 w-full block" key={index}>
+          <label htmlFor={value} className="my-2 w-full block" key={index}>
             <input
               type="radio"
               value={value}
@@ -23,7 +23,7 @@ const RadioButtons = ({ values, name, onChange, checked }) => {
 
       <style jsx>{`
         label {
-          cursor: pointer;         
+          cursor: pointer;
           user-select: none;
           transition: border-color .1s;
         }

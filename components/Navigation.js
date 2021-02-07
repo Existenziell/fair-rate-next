@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -41,7 +41,7 @@ export default function Navigation(props) {
   }, [])
 
   return (
-    <nav id='navbar' className='flex justify-between items-center border-b p-4 sticky top-0 bg-gray-50 z-10 opacity-95'>
+    <nav id='navbar' className='flex justify-between items-center border-b p-4 sticky top-0 bg-gray-50 z-10 w-full'>
 
       <div className="w-1/3">
         <ul className='min-w-90 md:min-w-90 navbar-links flex flex-auto justify-between'>

@@ -76,6 +76,14 @@
   background-color: var(--brand);
 }
 
+#navbar {
+  opacity: 0.95;
+}
+
+#navbar.opened {
+  opacity: 1;
+}
+
 #navbar.opened .navbar-onChange .icon-bar:first-child,
 #navbar.opened .navbar-onChange .icon-bar:last-child {
   margin: 0;

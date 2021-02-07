@@ -34,7 +34,6 @@ const NumberInput = ({ value, name, placeholder, onChange, required }) => {
           margin-bottom: 10px;
         }
       `}</style>
-
     </>
   )
 }

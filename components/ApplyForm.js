@@ -25,7 +25,7 @@ export default function ApplyForm() {
   const nextStep = (e) => {
     const form = document.forms[0]
     if (form.checkValidity()) {
-      localStorage.setItem("fairRate", JSON.stringify(formData))
+      localStorage.setItem("fairRateApply", JSON.stringify(formData))
       setCurrentStep(currentStep + 1)
       e.preventDefault()
     }
@@ -37,25 +37,26 @@ export default function ApplyForm() {
   }
 
   const handleSubmit = async (e) => {
-    const form = document.forms[0]
-    if (form.checkValidity()) {
-      setFormButtonDisabled(true)
-      document.getElementById("submitBtn").classList.add("disabled")
+    e.preventDefault()
+    // const form = document.forms[0]
+    // if (form.checkValidity()) {
+    //   setFormButtonDisabled(true)
+    //   document.getElementById("submitBtn").classList.add("disabled")
 
-      const data = JSON.stringify(formData)
-      const res = await axios({
-        method: "post",
-        url: "/api/apply",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        data
-      })
+    //   const data = JSON.stringify(formData)
+    //   const res = await axios({
+    //     method: "post",
+    //     url: "/api/apply",
+    //     headers: {
+    //       "Content-Type": "application/json"
+    //     },
+    //     data
+    //   })
 
-      res.status === 200 ?
-        Router.push('/success/') :
-        setError("We are sorry, an error occurred.")
-    }
+    //   res.status === 200 ?
+    //     Router.push('/success/') :
+    //     setError("We are sorry, an error occurred.")
+    // }
   }
 
   return (
