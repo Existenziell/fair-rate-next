@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import RadioButtons from '../RadioButtons'
-import TextArea from '../Textarea';
+import TextArea from '../TextArea';
 
 export default function Step2({ onChange, setError, formData }) {
 
