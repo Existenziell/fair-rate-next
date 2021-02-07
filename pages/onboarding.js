@@ -1,4 +1,4 @@
-import Main from '../components/Main'
+import Main from '../components/main'
 import OnboardingForm from '../components/OnboardingForm'
 
 const Onboarding = () => {

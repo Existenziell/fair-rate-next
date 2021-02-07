@@ -1,5 +1,5 @@
 import { AppWrapper } from '../context/state'
-import Head from '../components/Head'
+import Head from '../components/head'
 
 import '../styles/globals.css'
 import '../styles/navbar.css'

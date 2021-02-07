@@ -1,4 +1,4 @@
-import Main from '../components/Main'
+import Main from '../components/main'
 import Button from '../components/form/Button'
 import Link from 'next/link'
 
