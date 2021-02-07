@@ -11,10 +11,10 @@ const Main = ({ title, children, titleSuffix = true }) => {
   return (
     <Fragment>
       <Navigation />
-      <main className='main'>
+      <div className='main'>
         <NextSeo title={addBrandToTitle(title, titleSuffix)} />
         {children}
-      </main>
+      </div>
       {(router.pathname !== '/onboarding' && router.pathname !== '/apply') && <Footer />}
     </Fragment>
   )
