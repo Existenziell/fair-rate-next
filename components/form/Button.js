@@ -1,10 +1,10 @@
-const Button = ({ text, size, type }) => {
+const Button = ({ text, size, modifier }) => {
 
   return (
     <>
       <button
-        type='button'
-        className={`button ${type}`}
+        type="button"
+        className={`button ${modifier}`}
         style={{ width: size ? `${size}px` : `auto` }
         }
       >

@@ -9,19 +9,19 @@ export default function Navigation(props) {
 
   useEffect(() => {
     const navbar = document.getElementById('navbar')
-    const navbarToggle = navbar.querySelector('.navbar-toggle')
+    const navbaronChange = navbar.querySelector('.navbar-onChange')
 
     function openMobileNavbar() {
       navbar.classList.add('opened')
-      navbarToggle.setAttribute('aria-label', 'Close navigation menu.')
+      navbaronChange.setAttribute('aria-label', 'Close navigation menu.')
     }
 
     function closeMobileNavbar() {
       navbar.classList.remove('opened')
-      navbarToggle.setAttribute('aria-label', 'Open navigation menu.')
+      navbaronChange.setAttribute('aria-label', 'Open navigation menu.')
     }
 
-    navbarToggle.addEventListener('click', (e) => {
+    navbaronChange.addEventListener('click', (e) => {
       e.preventDefault()
       if (navbar.classList.contains('opened')) {
         closeMobileNavbar()
@@ -41,7 +41,7 @@ export default function Navigation(props) {
   }, [])
 
   return (
-    <nav id='navbar' className='flex justify-between items-center border-b p-4 sticky top-0 bg-gray-50'>
+    <nav id='navbar' className='flex justify-between items-center border-b p-4 sticky top-0 bg-gray-50 z-10 opacity-95'>
 
       <div className="w-1/3">
         <ul className='min-w-90 md:min-w-90 navbar-links flex flex-auto justify-between'>
@@ -57,7 +57,7 @@ export default function Navigation(props) {
           })}
         </ul>
 
-        <button type='button' className='navbar-toggle visible' aria-label='Open navigation menu'>
+        <button type='button' className='navbar-onChange visible' aria-label='Open navigation menu'>
           <span className='icon-bar'></span>
           <span className='icon-bar'></span>
           <span className='icon-bar'></span>

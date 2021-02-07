@@ -1,11 +1,18 @@
-const RadioButton = ({ values, name }) => {
-
+const RadioButtons = ({ values, name, onChange, checked }) => {
   return (
     <>
       {values.map((value, index) => {
         return (
-          <label htmlFor={value} className="my-4 w-full" key={index}>
-            <input type="radio" value={value} name={name} id={value} />
+          <label htmlFor={value} className="my-4 w-full block" key={index}>
+            <input
+              type="radio"
+              value={value}
+              name={name}
+              id={value}
+              onChange={(e) => onChange(e)}
+              defaultChecked={checked === value}
+              required
+            />
             <div className="option-inner flex p-4 items-center justify-end flex-row-reverse">
               <span className="pl-4">{value}</span>
               <i></i>
@@ -26,8 +33,6 @@ const RadioButton = ({ values, name }) => {
         input {
           position: absolute;
           opacity: 0;
-          top: -20px;
-          left: -20px;
         }
         label input:checked ~ div > i {
           background-color: rgb(255, 0, 131);
@@ -59,4 +64,4 @@ const RadioButton = ({ values, name }) => {
   )
 }
 
-export default RadioButton
+export default RadioButtons

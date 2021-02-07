@@ -15,7 +15,7 @@ const Main = ({ title, children, titleSuffix = true }) => {
         <NextSeo title={addBrandToTitle(title, titleSuffix)} />
         {children}
       </main>
-      {router.pathname !== '/apply' && <Footer />}
+      {(router.pathname !== '/onboarding' && router.pathname !== '/apply') && <Footer />}
     </Fragment>
   )
 }

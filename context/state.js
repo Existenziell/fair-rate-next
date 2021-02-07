@@ -7,7 +7,7 @@ const AppWrapper = ({ children }) => {
 
   const [formOpen = false, setFormOpen] = useState()
 
-  const toggle = () => {
+  const onChange = () => {
     setFormOpen(!formOpen)
   }
 
@@ -17,7 +17,7 @@ const AppWrapper = ({ children }) => {
   }
 
   return (
-    <AppContext.Provider value={{ sharedState, toggle }}>
+    <AppContext.Provider value={{ sharedState, onChange }}>
       {children}
     </AppContext.Provider>
   )
