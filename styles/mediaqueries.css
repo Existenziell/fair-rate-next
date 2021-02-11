@@ -30,7 +30,7 @@ Mobile-first approach with min-width
 @media (min-width: 1024px) {
   
   html {
-    font-size: 22px;
+    font-size: 20px;
   }
 
   h1 {
@@ -45,7 +45,7 @@ Mobile-first approach with min-width
 @media (min-width: 1280px) {
   
   html {
-    font-size: 26px;
+    font-size: 22px;
   }
 
   h1 {

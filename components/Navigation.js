@@ -3,8 +3,8 @@ import { useRouter } from 'next/router'
 import Image from 'next/image'
 import Link from 'next/link'
 
-export default function Navigation(props) {
-  let links = ['Reviews', 'FAQ', 'Contact', 'Help']
+export default function Navigation() {
+  let links = ['Reviews', 'Contact', 'Help']
   const router = useRouter()
 
   useEffect(() => {

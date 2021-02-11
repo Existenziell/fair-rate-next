@@ -32,11 +32,6 @@
   display: none;
 }
 
-.navbar-logo {
-  width: 168px;
-  height: 50px;
-}
-
 .navbar-onChange {
   display: none;
   cursor: pointer;

@@ -58,7 +58,7 @@ const OnboardingForm = () => {
 
       <div className="controls mt-8">
         {currentStep > 1 &&
-          <a onClick={previousStep} className="back block absolute w-16 left-8 -top-8 text-gray-200 hover:text-gray-500">
+          <a onClick={previousStep} className="transition-all cursor-pointer block absolute w-16 left-8 -top-8 text-gray-200 hover:text-gray-500">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
@@ -81,13 +81,6 @@ const OnboardingForm = () => {
           {error}
         </div>
       }
-
-      <style jsx>{`
-        .back {
-          cursor: pointer;
-          transition: all 0.2s ease-in-out;
-        }
-      `}</style>
     </>
   )
 }

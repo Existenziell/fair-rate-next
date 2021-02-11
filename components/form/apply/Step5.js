@@ -1,35 +1,43 @@
-import NumberInput from '../NumberInput'
+import { useState } from 'react'
+import RadioButtons from '../RadioButtons'
+import TextArea from '../TextArea';
 
-export default function Step5({ onChange, formData, setError }) {
+export default function Step5({ onChange, setError, formData }) {
+
+  const values = ["Fixed Rate", "GPM", "ARM (type)", "Other (explain)"]
+  const condition = values[3]
+  const [textareaOpen, setTextareaOpen] = useState(formData.amortizationType === condition)
 
   const validate = (e) => {
-    const { value } = e.target
-    if (value <= 0) {
-      setError("Are you sure?")
-    } else if (value < 10_000) {
-      setError("Loan must at least be 10.000 USD")
-    } else if (value > 1_000_000) {
-      setError("This is too much!")
+    const { name, value } = e.target
+    if (value === condition) {
+      setTextareaOpen(true)
     } else {
-      setError("")
-      onChange(e)
+      setTextareaOpen(false)
     }
+    onChange(e)
   }
 
   return (
     <>
       <h1 className="text-base text-gray-400 mt-6">I. Type of mortgage and terms of loan</h1>
-      <h2 className="my-8 text-2xl">Amount of loan:</h2>
-      <div className="flex items-center justify-center">
-        <NumberInput
-          placeholder={"Please insert the amount of the loan"}
-          name={"loanAmount"}
-          onChange={validate}
-          value={formData.loanAmount}
-          required={true}
+      <h2 className="my-8 text-2xl">Amortization Type:</h2>
+      <RadioButtons
+        name={"amortizationType"}
+        values={values}
+        checked={formData.amortizationType}
+        onChange={validate}
+      />
+
+      { textareaOpen &&
+        <TextArea
+          value={formData.amortizationTypeAddon}
+          name={"amortizationTypeAddon"}
+          placeholder="More space to describe your case."
+          onChange={onChange}
+          required={false}
         />
-        <span className="pl-2 text-xl">USD</span>
-      </div>
+      }
     </>
   )
 }

@@ -4,7 +4,7 @@ import { NextSeo } from 'next-seo'
 import Navigation from '../Navigation'
 import Footer from '../Footer'
 
-const addBrandToTitle = (title, addSuffix = true) => (addSuffix ? `${title} | FaiRate` : title)
+const addBrandToTitle = (title, addSuffix = true) => (addSuffix ? `${title} | FairRate` : title)
 
 const Main = ({ title, children, titleSuffix = true }) => {
   const router = useRouter()

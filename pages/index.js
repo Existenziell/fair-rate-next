@@ -20,7 +20,7 @@ export default function Home() {
 
         <Link href="/onboarding">
           <a>
-            <Button text="Check our Prices" modifier="primary promo" />
+            <Button text="Start Onboarding" modifier="primary promo" />
           </a>
         </Link>
       </div>

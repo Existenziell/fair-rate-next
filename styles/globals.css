@@ -43,49 +43,16 @@ select:-webkit-autofill:focus {
   box-shadow: 0 0 0px 1000px #ffffff inset !important;
 }
 
-
-/* 
-* Form
-*/
-label.overlap {
-  position: relative;
-  margin-bottom: 20px;
-  width: 100%;
-}
-
-label.overlap:hover {
-  cursor: pointer;
-}
-
-label.overlap span {
-  position: absolute;
-  top: -8px;
-  left: 16px;
-  background-color: white;
-  color: black;
-  padding: 0px 10px;
-  font-size: 0.7rem;
-  letter-spacing: 2px;
-}
-
-label.overlap input:focus {
-  box-shadow: inset 2px 2px 5px #ddd;
-}
-
-
 /* 
 * Button
 */
 .button {
   cursor: pointer;
-  display: inline-block;
   border: 0;
   outline: 0;
   font-size: 1rem;
   border-radius: 4px;
-  color: white;
   font-family: 'Lato', sans-serif;
-  font-weight: bold;
   box-shadow: -5px -5px 20px white, 5px 5px 20px #333;
   transition: all 0.2s ease-in-out;
   font-weight: 600;
@@ -114,4 +81,9 @@ label.overlap input:focus {
 .button.secondary {
   background-color: white;
   color: var(--color-brand);
+}
+
+.button.disabled {
+  box-shadow: none;
+  cursor: not-allowed;
 }

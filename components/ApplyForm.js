@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Router from 'next/router'
+import axios from 'axios'
 import Step1 from './form/apply/Step1'
 import Step2 from './form/apply/Step2'
 import Step3 from './form/apply/Step3'
@@ -7,17 +8,15 @@ import Step4 from './form/apply/Step4'
 import Step5 from './form/apply/Step5'
 import Step6 from './form/apply/Step6'
 import Step7 from './form/apply/Step7'
-import Step8 from './form/apply/Step8'
-import Step9 from './form/apply/Step9'
-import Step10 from './form/apply/Step10'
-import axios from 'axios'
+import Spinner from './Spinner'
 
 export default function ApplyForm() {
 
-  const [currentStep, setCurrentStep] = useState(2)
+  const [currentStep, setCurrentStep] = useState(1)
   const [error, setError] = useState(false)
   const [formData, setFormData] = useState([])
   const [formButtonDisabled, setFormButtonDisabled] = useState(false)
+  const totalSteps = 7
 
   const onChange = (e) => {
     const { name, value } = e.target
@@ -40,12 +39,12 @@ export default function ApplyForm() {
   }
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    Router.push('/success/')
+    console.log("handle");
     const form = document.forms[0]
     if (form.checkValidity()) {
-      // setFormButtonDisabled(true)
-      // document.getElementById("submitBtn").classList.add("disabled")
+      e.preventDefault()
+      setFormButtonDisabled(true)
+      document.getElementById("submitBtn").classList.add("disabled")
 
       const data = JSON.stringify(formData)
       const res = await axios({
@@ -93,7 +92,7 @@ export default function ApplyForm() {
           {currentStep === 7 &&
             <Step7 onChange={onChange} formData={formData} setError={setError} />
           }
-          {currentStep === 8 &&
+          {/* {currentStep === 8 &&
             <Step8 onChange={onChange} formData={formData} setError={setError} />
           }
           {currentStep === 9 &&
@@ -101,7 +100,7 @@ export default function ApplyForm() {
           }
           {currentStep === 10 &&
             <Step10 onChange={onChange} formData={formData} setError={setError} />
-          }
+          } */}
 
           {error &&
             <div className="mt-8 text-red-400">
@@ -113,16 +112,28 @@ export default function ApplyForm() {
             ? (
               <div className="mt-8">
                 {currentStep > 1 &&
-                  <a className="back block absolute w-16 left-8 -top-8 text-gray-200 hover:text-gray-500" onClick={previousStep}>
+                  <a onClick={previousStep} className="transition-all	cursor-pointer block absolute w-16 left-8 -top-8 text-gray-200 hover:text-gray-500">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                     </svg>
                   </a>
                 }
-                {currentStep < 10 ?
+                {currentStep < totalSteps ?
                   <input type="submit" name="next" onClick={nextStep} value="Next" className="button primary" />
                   :
-                  <input type="submit" name="submit" id="submitBtn" value="Complete Application" className="button primary" onClick={handleSubmit} disabled={formButtonDisabled} />
+                  <button type="submit"
+                    name="submit"
+                    id="submitBtn"
+                    value="Complete Application"
+                    className="button primary relative flex items-center justify-center"
+                    onClick={handleSubmit}
+                    disabled={formButtonDisabled}
+                  >
+                    <span>Complete Application</span>
+                    {formButtonDisabled &&
+                      <Spinner type="dualring" className="w-1" />
+                    }
+                  </button>
                 }
               </div>
             )
@@ -130,13 +141,6 @@ export default function ApplyForm() {
           }
         </form>
       </div>
-
-      <style jsx>{`
-        .back {
-          cursor: pointer;
-          transition: all 0.2s ease-in-out;
-        }
-      `}</style>
     </>
   )
 }
