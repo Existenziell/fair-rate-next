@@ -56,7 +56,7 @@ const OnboardingForm = () => {
         </form>
       </div>
 
-      <div className="controls">
+      <div className="controls mt-8">
         {currentStep > 1 &&
           <a onClick={previousStep} className="back block absolute w-16 left-8 -top-8 text-gray-200 hover:text-gray-500">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">

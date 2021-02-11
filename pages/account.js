@@ -4,22 +4,24 @@ import Main from '../components/main'
 const Account = () => {
 
   const [formData, setFormData] = useState()
+  const [onboardingData, setOnboardingData] = useState()
+  const [applyData, setApplyData] = useState()
 
-  let onboardingData, applyData
   useEffect(() => {
-    // console.log(formData);
-    onboardingData = window.localStorage.getItem("fairRateOnboarding")
-    applyData = window.localStorage.getItem("fairRateApply")
-    // console.log(onboardingData);
-  }, [])
+    const applyRaw = window.localStorage.getItem("fairRateApply");
+    const onboardingRaw = window.localStorage.getItem("fairRateOnboarding")
+    if (applyRaw) {
+      setApplyData(applyRaw)
+    }
+    if (onboardingRaw) {
+      setOnboardingData(onboardingRaw)
+    }
+  }, []);
 
   return (
     <Main title='My Account' titleSuffix={true}>
       <div className="flex flex-col items-center justify-center my-16">
         <h1 className="mb-6">My Account</h1>
-
-        <h2>My Data:</h2>
-        <pre className="my-12">{JSON.stringify({ name: "Leon Lamle", email: "llamle@fairrate.com" }, null, 2)}</pre>
 
         <h2>Onboarding:</h2>
         <pre className="my-12">{JSON.stringify(onboardingData, null, 2)}</pre>
