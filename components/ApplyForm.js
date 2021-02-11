@@ -39,7 +39,6 @@ export default function ApplyForm() {
   }
 
   const handleSubmit = async (e) => {
-    console.log("handle");
     const form = document.forms[0]
     if (form.checkValidity()) {
       e.preventDefault()
