@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import Link from 'next/link'
-import Button from '../components/form/Button'
-import Step1 from '../components/form/onboarding/Step1'
-import Step2 from '../components/form/onboarding/Step2'
-import Step3 from '../components/form/onboarding/Step3'
+import Button from './Button'
+import Step1 from './onboarding/Step1'
+import Step2 from './onboarding/Step2'
+import Step3 from './onboarding/Step3'
 
 const OnboardingForm = () => {
 

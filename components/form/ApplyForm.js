@@ -1,14 +1,14 @@
 import { useState } from 'react'
 import Router from 'next/router'
 import axios from 'axios'
-import Step1 from './form/apply/Step1'
-import Step2 from './form/apply/Step2'
-import Step3 from './form/apply/Step3'
-import Step4 from './form/apply/Step4'
-import Step5 from './form/apply/Step5'
-import Step6 from './form/apply/Step6'
-import Step7 from './form/apply/Step7'
-import Spinner from './Spinner'
+import Step1 from './apply/Step1'
+import Step2 from './apply/Step2'
+import Step3 from './apply/Step3'
+import Step4 from './apply/Step4'
+import Step5 from './apply/Step5'
+import Step6 from './apply/Step6'
+import Step7 from './apply/Step7'
+import Spinner from '../Spinner'
 
 export default function ApplyForm() {
 

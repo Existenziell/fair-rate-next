@@ -1,4 +1,4 @@
-import ApplyForm from '../components/ApplyForm'
+import ApplyForm from '../components/form/ApplyForm'
 import Main from '../components/main'
 
 const Apply = () => {

@@ -2,7 +2,7 @@ import { Component } from "react"
 import Router from 'next/router'
 import Link from 'next/link'
 import axios from "axios"
-import Spinner from "./Spinner"
+import Spinner from "../Spinner"
 
 export default class ContactForm extends Component {
 

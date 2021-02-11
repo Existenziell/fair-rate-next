@@ -1,5 +1,5 @@
 import Main from '../components/main'
-import OnboardingForm from '../components/OnboardingForm'
+import OnboardingForm from '../components/form/OnboardingForm'
 
 const Onboarding = () => {
 
