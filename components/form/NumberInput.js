@@ -1,7 +1,8 @@
-const NumberInput = ({ value, name, placeholder, onChange, required }) => {
+const NumberInput = ({ value, name, label, placeholder, onChange, required }) => {
   return (
     <>
-      <label htmlFor={name}>
+      <label htmlFor={name} className="inline shadow-md">
+        <span>{label}</span>
         <input
           type="number"
           name={name}
@@ -29,9 +30,6 @@ const NumberInput = ({ value, name, placeholder, onChange, required }) => {
         }
         input:focus {
           box-shadow: inset 2px 2px 5px $color-shadow, inset -5px -5px 10px white;
-        }
-        label:not(:last-of-type) {
-          margin-bottom: 10px;
         }
       `}</style>
     </>

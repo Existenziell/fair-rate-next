@@ -6,7 +6,7 @@ export default function Home() {
   return (
 
     <Main title='FairRate Mortgage App' titleSuffix={false}>
-      <div className="flex flex-col items-center justify-center min-h-full p-8">
+      <div className="flex flex-col items-center justify-center min-h-screen p-8">
 
         <h1 className="text-center w-3/5">
           Forget Everything You Know About Insurance

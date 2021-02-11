@@ -22,7 +22,7 @@ export default function Step5({ onChange, formData, setError }) {
       <h2 className="my-8 text-2xl">Amount of loan:</h2>
       <div className="flex items-center justify-center">
         <NumberInput
-          placeholder={"Please intert the amount of the loan"}
+          placeholder={"Please insert the amount of the loan"}
           name={"loanAmount"}
           onChange={validate}
           value={formData.loanAmount}

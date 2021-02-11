@@ -8,6 +8,8 @@ import Step5 from './form/apply/Step5'
 import Step6 from './form/apply/Step6'
 import Step7 from './form/apply/Step7'
 import Step8 from './form/apply/Step8'
+import Step9 from './form/apply/Step9'
+import Step10 from './form/apply/Step10'
 import axios from 'axios'
 
 export default function ApplyForm() {
@@ -24,6 +26,7 @@ export default function ApplyForm() {
 
   const nextStep = (e) => {
     const form = document.forms[0]
+    // HTML5 validity check
     if (form.checkValidity()) {
       localStorage.setItem("fairRateApply", JSON.stringify(formData))
       setCurrentStep(currentStep + 1)
@@ -39,25 +42,25 @@ export default function ApplyForm() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     Router.push('/success/')
-    // const form = document.forms[0]
-    // if (form.checkValidity()) {
-    //   setFormButtonDisabled(true)
-    //   document.getElementById("submitBtn").classList.add("disabled")
+    const form = document.forms[0]
+    if (form.checkValidity()) {
+      // setFormButtonDisabled(true)
+      // document.getElementById("submitBtn").classList.add("disabled")
 
-    //   const data = JSON.stringify(formData)
-    //   const res = await axios({
-    //     method: "post",
-    //     url: "/api/apply",
-    //     headers: {
-    //       "Content-Type": "application/json"
-    //     },
-    //     data
-    //   })
+      const data = JSON.stringify(formData)
+      const res = await axios({
+        method: "post",
+        url: "/api/apply",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        data
+      })
 
-    //   res.status === 200 ?
-    //     Router.push('/success/') :
-    //     setError("We are sorry, an error occurred.")
-    // }
+      res.status === 200 ?
+        Router.push('/success/') :
+        setError("We are sorry, an error occurred.")
+    }
   }
 
   return (
@@ -93,6 +96,12 @@ export default function ApplyForm() {
           {currentStep === 8 &&
             <Step8 onChange={onChange} formData={formData} setError={setError} />
           }
+          {currentStep === 9 &&
+            <Step9 onChange={onChange} formData={formData} setError={setError} />
+          }
+          {currentStep === 10 &&
+            <Step10 onChange={onChange} formData={formData} setError={setError} />
+          }
 
           {error &&
             <div className="mt-8 text-red-400">
@@ -110,7 +119,7 @@ export default function ApplyForm() {
                     </svg>
                   </a>
                 }
-                {currentStep < 8 ?
+                {currentStep < 10 ?
                   <input type="submit" name="next" onClick={nextStep} value="Next" className="button primary" />
                   :
                   <input type="submit" name="submit" id="submitBtn" value="Complete Application" className="button primary" onClick={handleSubmit} disabled={formButtonDisabled} />

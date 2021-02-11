@@ -13,6 +13,7 @@
   "dependencies": {
     "autoprefixer": "^10.0.4",
     "axios": "^0.21.1",
+    "mongodb": "^3.6.4",
     "next": "latest",
     "next-seo": "^4.19.0",
     "postcss": "^8.1.10",

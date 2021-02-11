@@ -18,7 +18,7 @@ export default function Step6({ onChange, formData, setError }) {
       <h2 className="my-8 text-2xl">Interest Rate:</h2>
       <div className="flex items-center justify-center">
         <NumberInput
-          placeholder={"Please intert the interest rate for the loan"}
+          placeholder={"Please insert the interest rate for the loan"}
           name={"interestRate"}
           onChange={validate}
           value={formData.interestRate}

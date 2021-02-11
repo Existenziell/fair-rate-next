@@ -2,7 +2,7 @@ const TextArea = ({ value, name, placeholder, onChange, required }) => {
 
   return (
     <>
-      <label htmlFor={name} className="w-full">
+      <label htmlFor={name} className="w-full shadow-md">
         <textarea
           name={name}
           id={name}
@@ -18,7 +18,6 @@ const TextArea = ({ value, name, placeholder, onChange, required }) => {
         textarea {
           min-height: 150px;
           width: 100%;
-          border: 1px solid #ccc;
           border-radius: 4px;
           margin: 4px 0px 20px;
           resize: none;

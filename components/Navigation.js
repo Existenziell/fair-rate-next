@@ -65,12 +65,12 @@ export default function Navigation(props) {
       </div>
 
       <Link href='/'>
-        <a className='w-4/12 flex justify-center'>
+        <a className='flex justify-center max-w-1/4'>
           <Image
             src='/icons/logo.png'
             alt='FairRate Logo'
             width={100}
-            height={67}
+            height={75}
           />
         </a>
       </Link>
