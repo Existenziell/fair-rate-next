@@ -9,24 +9,27 @@ export default function Navigation(props) {
 
   useEffect(() => {
     const navbar = document.getElementById('navbar')
-    const navbaronChange = navbar.querySelector('.navbar-onChange')
+    const navbarOnChange = navbar.querySelector('.navbar-onChange')
 
     function openMobileNavbar() {
       navbar.classList.add('opened')
-      navbaronChange.setAttribute('aria-label', 'Close navigation menu.')
+      navbarOnChange.setAttribute('aria-label', 'Close navigation menu.')
     }
 
     function closeMobileNavbar() {
       navbar.classList.remove('opened')
-      navbaronChange.setAttribute('aria-label', 'Open navigation menu.')
+      navbarOnChange.setAttribute('aria-label', 'Open navigation menu.')
     }
 
-    navbaronChange.addEventListener('click', (e) => {
+    navbarOnChange.addEventListener('click', (e) => {
       e.preventDefault()
       if (navbar.classList.contains('opened')) {
         closeMobileNavbar()
+        document.querySelector('.main').removeEventListener('click', closeMobileNavbar)
+
       } else {
         openMobileNavbar()
+        document.querySelector('.main').addEventListener('click', closeMobileNavbar)
       }
     })
 
@@ -48,7 +51,7 @@ export default function Navigation(props) {
           {links.map((value, index) => {
             let l = `/${value.toLowerCase()}`
             return (
-              <li className='navbar-item' key={index}>
+              <li className='py-2' key={index}>
                 <Link href={l}>
                   <a className={`navbar-link ${router.pathname === l ? 'active' : ''}`}>{value}</a>
                 </Link>
@@ -76,7 +79,7 @@ export default function Navigation(props) {
       </Link>
 
       <Link href='/account'>
-        <a className='navbar-link w-4/12 flex justify-end'>
+        <a className='account-icon w-4/12 flex justify-end'>
           <span>My Account</span>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />

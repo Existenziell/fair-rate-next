@@ -8,12 +8,14 @@ export default function Home() {
     <Main title='FairRate Mortgage App' titleSuffix={false}>
       <div className="flex flex-col items-center justify-center min-h-screen p-8">
 
-        <h1 className="text-center w-3/5">
-          Forget Everything You Know About Insurance
+        <h1 className="text-center md:w-3/5">
+          Forget Everything You Know About Mortgage
         </h1>
 
-        <p className="mt-8 mb-16">
-          Instant everything. Incredible prices. Big heart.
+        <p className="mt-8 mb-16 text-center">
+          Free for you.<br />
+          Compare 'em all.<br />
+          Big heart.
         </p>
 
         <Link href="/onboarding">

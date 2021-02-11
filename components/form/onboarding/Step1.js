@@ -27,12 +27,12 @@ export default function Step1({ onChange, setError, formData }) {
 
   return (
     <>
-      <h1>Hey welcome!</h1>
+      <h1 className="text-center">Hey welcome!</h1>
 
       {applyData ?
         <>
-          <h2 className="mt-6">It seems like you have been here before.</h2>
-          <p className="mb-6">Do you want to continue your application where you last left?</p>
+          <h2 className="text-center mt-6">It seems like you have been here before.</h2>
+          <p className="text-center mb-6">Do you want to continue your application where you last left?</p>
           <RadioButtons
             values={["Yes", "Start over"]}
             name={"resumeApplication"}
@@ -42,7 +42,7 @@ export default function Step1({ onChange, setError, formData }) {
         </>
         :
         <>
-          <h2 className="my-6">Do you already have a FairRate account?</h2>
+          <h2 className="text-center my-6">Do you already have a FairRate account?</h2>
           <RadioButtons
             values={["Yes", "Nope"]}
             name={"accountExists"}
