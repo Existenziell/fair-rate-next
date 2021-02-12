@@ -9,7 +9,7 @@ export default function Step1({ onChange, setError, formData }) {
   useEffect(() => {
     const onboardingRaw = JSON.parse(localStorage.getItem('fairRateOnboarding'))
     // If we know the firstname, trigger resume (where user left off last time)
-    if (onboardingRaw.firstName) {
+    if (onboardingRaw) {
       setOnboardingData(onboardingRaw)
     }
   }, [])
@@ -28,10 +28,9 @@ export default function Step1({ onChange, setError, formData }) {
 
   return (
     <>
-      {onboardingData ?
+      {onboardingData &&
+        onboardingData.firstName &&
         <h3 className="text-center mb-4">Welcome back, {onboardingData.firstName}</h3>
-        :
-        null
       }
       <>
         <h1>What is the expected purchase price?</h1>
