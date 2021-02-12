@@ -11,11 +11,11 @@ Mobile-first approach with min-width
 @media (min-width: 768px) {
   
   html {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   h1 {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   .button.promo.icon {
@@ -30,12 +30,13 @@ Mobile-first approach with min-width
 @media (min-width: 1024px) {
   
   html {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   h1 {
-    font-size: 2rem;
+    font-size: 1.75rem;
   }
+
   .button.promo.icon {
     width: 420px !important;
   }
@@ -48,7 +49,7 @@ Mobile-first approach with min-width
 @media (min-width: 1280px) {
   
   html {
-    font-size: 22px;
+    font-size: 20px;
   }
 
   h1 {
