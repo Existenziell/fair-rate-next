@@ -31,6 +31,15 @@ h1 {
   line-height: 1.5;
 }
 
+p > a {
+  border-bottom: 1px dotted var(--color-brand);
+}
+
+p > a:hover {
+  border-bottom: 1px solid var(--color-brand);
+  opacity: 0.65;
+}
+
 /* Remove blue background on Chrome autocomplete */
 input:-webkit-autofill,
 input:-webkit-autofill:hover,

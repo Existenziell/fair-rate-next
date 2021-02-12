@@ -1,6 +1,6 @@
 /**
-**  Backend for apply form
-**  Save to mongoDB collection 'applications'
+**  Backend for onboarding form
+**  Save to mongoDB collection 'onboarding'
 **/
 
 import { connectToDatabase } from "../../lib/mongodb"
@@ -15,7 +15,7 @@ export default async (req, res) => {
       return
     }
     data.createdAt = Date.now()
-    await db.collection('applications').insertOne({ data })
+    await db.collection('onboarding').insertOne({ data })
     res.status(200).send(true)
   } catch (error) {
     console.error("Error", error)

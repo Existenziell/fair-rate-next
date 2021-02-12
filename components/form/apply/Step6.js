@@ -1,7 +1,7 @@
-import TextInput from '../TextInput';
+import TextInput from '../TextInput'
 import NumberInput from '../NumberInput'
-import Select from '../Select';
-import states from '../states.json';
+import Select from '../Select'
+import states from '../states.json'
 
 export default function Step6({ onChange, setError, formData }) {
 

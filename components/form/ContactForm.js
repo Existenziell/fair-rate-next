@@ -1,162 +1,98 @@
-import { Component } from "react"
+import { useState } from 'react'
 import Router from 'next/router'
 import Link from 'next/link'
 import axios from "axios"
+import TextInput from '../form/TextInput'
+import TextArea from '../form/TextArea'
 import Spinner from "../Spinner"
+import EmailInput from './EmailInput'
 
-export default class ContactForm extends Component {
+export default function ContactForm() {
 
-  state = {
-    formButtonDisabled: false,
-    formButtonText: "Send",
-    name: "",
-    email: "",
-    message: ""
+  const [formData, setFormData] = useState([])
+  const [formButtonDisabled, setFormButtonDisabled] = useState(false)
+  const [error, setError] = useState(false)
+
+  const onChange = (e) => {
+    const { name, value } = e.target
+    setFormData({ ...formData, [name]: value })
   }
 
-  sendContactMail = async (name, email, message) => {
-
-    this.setState({ formButtonDisabled: true })
-
-    const data = {
-      name,
-      email,
-      message
-    }
-    try {
-      const res = await axios({
-        method: "post",
-        url: "/api/contact",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        data
-      })
-      return res
-
-    } catch (error) {
-      this.setState({ formButtonDisabled: false })
-      return error
-    }
-  }
-
-  render() {
-    const { formButtonText, formButtonDisabled, name, email, message } = this.state
-    const btnClass = formButtonDisabled ? "disabled" : ""
-
-    return (
-      <div className="contact">
-
-        <form className="contact-form" onSubmit={this.submitContactForm}>
-
-          <h1>Contact us</h1>
-
-          <label>Full Name:
-          <input type="text"
-              placeholder="John Smith"
-              defaultValue={name}
-              name="name"
-              onChange={this.onNameChange}
-              required />
-          </label>
-
-          <label>Email:
-          <input type="email"
-              placeholder="your@email.com"
-              defaultValue={email}
-              name="email"
-              onChange={this.onMailChange}
-              required />
-          </label>
-
-          <label>How can we help?
-          <textarea
-              name="message"
-              placeholder="Please include all inquiries here"
-              defaultValue={message}
-              onChange={this.onMessageChange}
-              required />
-          </label>
-
-          {formButtonDisabled ?
-            <Spinner />
-            :
-            <input
-              className={`button primary ${btnClass}`}
-              type="submit"
-              onClick={this.submitContactForm}
-              disabled={formButtonDisabled}
-              value={formButtonText} />
-          }
-
-          <div className="apply-teaser">
-            <Link href="/apply"><a>Ready to apply for a treatment?</a></Link>&nbsp;&nbsp;
-            <Link href="/apply"><a className="blue">Begin Here!</a></Link>
-          </div>
-
-        </form>
-
-        <section className="contact-info">
-          <div className="block">
-            <img src="https://uploads-ssl.webflow.com/5d9667bad4a41e584795e13a/5d9667bad4a41e385d95e270_assembly.svg" width="25" alt="Contact" />
-            <div>
-              <p>
-                <strong>Contact:</strong><br />
-                Concierge: <a href="tel:18773827836" className="link-12">1 (877) CZM–STEM</a><br />
-                Office: <a href="tel:1345943-2002" className="link-13">1 345 943-2002</a><br />
-                Fax: 877-382-7836
-              </p>
-            </div>
-          </div>
-          <div className="block">
-            <img src="https://uploads-ssl.webflow.com/5d9667bad4a41e584795e13a/5d9667bad4a41e526095e2fe_assembly%2010.svg" width="25" alt="Office Hours" />
-            <div>
-              <p>
-                <strong>Office Hours:</strong><br />
-                Monday - Friday <br />
-                9am - 5pm CST<br />
-              </p>
-            </div>
-          </div>
-          <div className="block">
-            <img src="https://uploads-ssl.webflow.com/5d9667bad4a41e584795e13a/5d9667bad4a41e42c495e26d_assembly%203.svg" width="25" alt="Location" />
-            <div>
-              <p>
-                <strong>Location:</strong><br />
-                25ᵃ Avenida Nte. 473, Centro<br />
-                77600 San Miguel de Cozumel<br />
-                Quintana Roo, Mexico
-              </p>
-            </div>
-          </div>
-        </section>
-      </div>
-    )
-  }
-
-  onNameChange = (event) => {
-    this.setState({ name: event.target.value })
-  }
-
-  onMailChange = (event) => {
-    this.setState({ email: event.target.value })
-  }
-
-  onMessageChange = (event) => {
-    this.setState({ message: event.target.value })
-  }
-
-  submitContactForm = async (e) => {
+  const handleSubmit = async (e) => {
     const form = document.forms[0]
     if (form.checkValidity()) {
-      const { name, email, message } = this.state
+      e.preventDefault()
+      setFormButtonDisabled(true)
+      document.getElementById("submitBtn").classList.add("disabled")
 
-      const res = await this.sendContactMail(name, email, message)
-      if (res.status < 300) {
-        Router.push('/success/')
-      } else {
-        this.setState({ formButtonText: "Sorry, something went wrong..." })
+      const data = JSON.stringify(formData)
+      try {
+        const res = await axios({
+          method: "post",
+          url: "/api/contact",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          data
+        })
+        Router.push('/success')
+      } catch (error) {
+        setError("We are sorry, an error occurred.", error)
       }
     }
   }
+
+  return (
+    <div className="w-full md:w-4/5 lg:w-1/2 mt-8">
+      <form className="flex flex-col items-center w-full text-center" onSubmit={handleSubmit}>
+
+        <h1>Contact us</h1>
+
+        <TextInput
+          value={formData.name}
+          name={"name"}
+          label={"Name"}
+          placeholder={"John Smith"}
+          onChange={onChange}
+          required={true}
+        />
+
+        <EmailInput
+          value={formData.email}
+          name={"email"}
+          label={"Your Email Address"}
+          placeholder={"your@email.com"}
+          onChange={onChange}
+          required={true}
+        />
+
+        <TextArea
+          label={"How can we help?"}
+          value={formData.message}
+          name={"message"}
+          placeholder="Your Message"
+          onChange={onChange}
+          required={false}
+        />
+
+        {error &&
+          <div className="my-4 text-red-400">
+            {error}
+          </div>
+        }
+
+        <button
+          className="button primary relative flex items-center justify-center"
+          type="submit"
+          disabled={formButtonDisabled}
+          id="submitBtn"
+        >
+          <span>Send</span>
+          {formButtonDisabled &&
+            <Spinner type="dualring" className="w-1" />
+          }
+        </button>
+      </form>
+    </div>
+  )
 }

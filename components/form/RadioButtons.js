@@ -45,7 +45,6 @@ const RadioButtons = ({ values, name, onChange, checked }) => {
           font-family: 'Lato', sans-serif;
           color: #4A4A4A;
           font-weight: 700;
-          text-transform: uppercase;
         }
         i {
           width: 30px;

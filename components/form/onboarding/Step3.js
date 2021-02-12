@@ -1,21 +1,24 @@
 import RadioButtons from '../RadioButtons'
 
-export default function Step3({ onChange, setError, formData }) {
+export default function Step4({ onChange, formData }) {
 
-  const validate = (e) => {
-    if (e.target.value !== "Yes") {
-      // get data...
-      setError("Please acknowledge the above statement in order to continue.")
-    } else {
-      setError("")
-      onChange(e)
-    }
-  }
+  const values = [
+    "Ready to or just made an offer",
+    "Actively looking for a home",
+    "Plan to buy in 6 months or so",
+    "Just exploring loan options",
+  ]
 
   return (
     <>
-      <h1>All set</h1>
-      <pre className="my-16">{JSON.stringify(formData, null, 2)}</pre>
+      <h1>What best describes your home buying situation?</h1>
+      <h2 className="my-6">{''}</h2>
+      <RadioButtons
+        name={"buyingSituation"}
+        values={values}
+        checked={formData.buyingSituation}
+        onChange={onChange}
+      />
     </>
   )
 }

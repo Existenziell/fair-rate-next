@@ -70,7 +70,7 @@ export default function Navigation() {
       <Link href='/'>
         <a className='flex justify-center max-w-1/4'>
           <Image
-            src='/icons/logo2.png'
+            src='/icons/logo.png'
             alt='FairRate Logo'
             width={200}
             height={60}

@@ -12,11 +12,11 @@ import Spinner from '../Spinner'
 
 export default function ApplyForm() {
 
-  const [currentStep, setCurrentStep] = useState(1)
-  const [error, setError] = useState(false)
   const [formData, setFormData] = useState([])
   const [formButtonDisabled, setFormButtonDisabled] = useState(false)
+  const [currentStep, setCurrentStep] = useState(1)
   const totalSteps = 7
+  const [error, setError] = useState(false)
 
   const onChange = (e) => {
     const { name, value } = e.target
@@ -56,7 +56,7 @@ export default function ApplyForm() {
       })
 
       res.status === 200 ?
-        Router.push('/success/') :
+        Router.push('/success') :
         setError("We are sorry, an error occurred.")
     }
   }
@@ -67,7 +67,7 @@ export default function ApplyForm() {
         <form className="flex flex-col items-center w-full text-center" onSubmit={handleSubmit}>
 
           <div className="absolute right-8 -top-4 w-32 text-gray-500">
-            <span>Step {currentStep} / 8</span>
+            <span>Step {currentStep} / {totalSteps}</span>
           </div>
 
           {currentStep === 1 &&
@@ -91,15 +91,6 @@ export default function ApplyForm() {
           {currentStep === 7 &&
             <Step7 onChange={onChange} formData={formData} setError={setError} />
           }
-          {/* {currentStep === 8 &&
-            <Step8 onChange={onChange} formData={formData} setError={setError} />
-          }
-          {currentStep === 9 &&
-            <Step9 onChange={onChange} formData={formData} setError={setError} />
-          }
-          {currentStep === 10 &&
-            <Step10 onChange={onChange} formData={formData} setError={setError} />
-          } */}
 
           {error &&
             <div className="mt-8 text-red-400">
