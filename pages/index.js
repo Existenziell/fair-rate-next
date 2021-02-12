@@ -6,21 +6,25 @@ export default function Home() {
   return (
 
     <Main title='FairRate Mortgage App' titleSuffix={false}>
-      <div className="flex flex-col items-center justify-center min-h-screen p-8">
+      <div className="flex flex-col items-center justify-center p-8 mt-4 mb-16">
 
-        <h1 className="text-center md:w-3/5">
-          Forget Everything You Know About Mortgage
+        <h1 className="text-center sm:w-1/3 md:w-2/5">
+          Get the right home loan at a great rate
         </h1>
 
-        <p className="mt-8 mb-16 text-center">
-          Free for you.<br />
-          Compare 'em all.<br />
-          Big heart.
-        </p>
+        <h2 className="mt-8 mb-16 text-center sm:w-1/3 md:w-2/5">
+          Compare, choose &amp; settle with America’s number 1 online home loan platform
+        </h2>
+
+        <Link href="/apply">
+          <a className="mb-4">
+            <Button text="I want to refinance" modifier="primary promo" icon='dollar' size={340} />
+          </a>
+        </Link>
 
         <Link href="/onboarding">
           <a>
-            <Button text="Start Onboarding" modifier="primary promo" />
+            <Button text="I want to buy a home" modifier="primary promo" icon='house' size={340} />
           </a>
         </Link>
       </div>

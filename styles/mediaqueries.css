@@ -18,8 +18,8 @@ Mobile-first approach with min-width
     font-size: 2rem;
   }
 
-  .button.promo {
-    font-size: 2rem;
+  .button.promo.icon {
+    width: 360px !important;
   }
 }
 
@@ -35,6 +35,9 @@ Mobile-first approach with min-width
 
   h1 {
     font-size: 2rem;
+  }
+  .button.promo.icon {
+    width: 420px !important;
   }
 }
 

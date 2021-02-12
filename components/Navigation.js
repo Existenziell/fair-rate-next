@@ -70,17 +70,17 @@ export default function Navigation() {
       <Link href='/'>
         <a className='flex justify-center max-w-1/4'>
           <Image
-            src='/icons/logo.png'
+            src='/icons/logo2.png'
             alt='FairRate Logo'
-            width={100}
-            height={75}
+            width={200}
+            height={60}
           />
         </a>
       </Link>
 
       <Link href='/account'>
         <a className='account-icon w-4/12 flex justify-end'>
-          <span>My Account</span>
+          <span className="navbar-link">My Account</span>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
           </svg>

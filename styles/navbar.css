@@ -74,11 +74,7 @@
 
 #navbar {
   opacity: 0.95;
-  height: 60px;
-}
-
-#navbar img {
-  width: 60px;
+  height: 70px;
 }
 
 #navbar.opened {

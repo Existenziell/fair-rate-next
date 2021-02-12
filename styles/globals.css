@@ -55,9 +55,9 @@ select:-webkit-autofill:focus {
   font-family: 'Lato', sans-serif;
   box-shadow: -5px -5px 20px white, 5px 5px 20px #333;
   transition: all 0.2s ease-in-out;
-  font-weight: 600;
   padding: 10px 30px;
   min-width: fit-content;
+  white-space: nowrap;
 }
 
 .button:hover {
@@ -69,8 +69,16 @@ select:-webkit-autofill:focus {
 }
 
 .button.promo {
-  font-size: 1.5rem;
   padding: 20px 40px;
+  font-size: 1.5rem;
+}
+
+.button.promo.icon {
+  padding-left: 80px;
+}
+
+.button.icon {
+  padding-left: 40px;
 }
 
 .button.primary {
