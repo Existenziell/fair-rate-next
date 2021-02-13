@@ -16,8 +16,8 @@ export default function Approved() {
           </p>
           <p>
             Congratulations! Your rate reflects our best possible pricing.
-            Let’s make sure your new mortgage stays just how you like it;
-            protect it from changing by locking your rate with{' '}
+            Let’s make sure your new mortgage stays just how you like it!
+            Protect it from changing by locking your rate with{' '}
             <Link href='/'><a>one more click</a></Link>.
           </p>
         </div>

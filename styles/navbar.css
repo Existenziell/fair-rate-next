@@ -10,7 +10,8 @@
 
 .home-link,
 .navbar-link,
-.navbar-link span {
+.navbar-link span,
+.navbar-link-fake {
   font-family: 'Lato', sans-serif;
   font-size: 0.9rem;
   font-weight: 600;
@@ -19,7 +20,8 @@
 }
 
 .navbar-link:focus,
-.navbar-link:hover {
+.navbar-link:hover,
+.navbar-link-fake:hover {
   color: var(--color-brand);
 }
 
@@ -189,7 +191,7 @@
     display: block;
   }
 
-  #navbar .navbar-link:last-child {
-    margin-right: 0;
+  .navbar-link {
+    margin-right: 20px;
   }
 }

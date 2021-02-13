@@ -5,7 +5,7 @@ const TelInput = ({ value, name, label, placeholder, onChange, suffix, required 
       <span className="absolute bg-white text-gray-500 text-xs left-6 -top-2 px-2">{label}</span>
       <input
         type="tel"
-        pattern="*"
+        pattern=".*"
         minLength="6"
         maxLength="32"
         name={name}

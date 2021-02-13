@@ -1,18 +1,21 @@
+import { signIn, signOut, useSession } from 'next-auth/client'
+import Link from 'next/link'
 import Main from '../components/main'
 import Button from '../components/form/Button'
-import Link from 'next/link'
 
 export default function Home() {
+  const [session, loading] = useSession()
+
   return (
     <>
       <Main title='FairRate Mortgage App' titleSuffix={false}>
-        <div className="flex flex-col items-center justify-center pt-12 pb-32">
+        <div className="flex flex-col items-center justify-center px-6 pt-12 pb-32">
 
           <h1 className="text-center sm:w-1/3 md:w-2/5">
             Get the right home loan at a great rate
         </h1>
 
-          <h2 className="mt-8 mb-16 text-center sm:w-1/3 md:w-2/5">
+          <h2 className="mt-8 mb-16 text-center sm:w-1/3 md:w-2/5 p-4 bg-opacity-60 bg-white">
             Compare, choose &amp; settle with America’s number 1 online home loan platform
         </h2>
 
