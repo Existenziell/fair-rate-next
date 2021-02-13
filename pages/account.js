@@ -48,56 +48,60 @@ const Account = (props) => {
               </div>
             }
 
-            <h2 className="text-xl">{inquiries && inquiries.length ? `Your open inquiries:` : ``}</h2>
-            <div className="flex flex-wrap gap-4 ">
+            <h2 className="text-xl text-brand mb-4">{inquiries && inquiries.length ? `Your open inquiries:` : ``}</h2>
+            <div className="flex flex-wrap gap-4 justify-center">
               {inquiries.map((inquiry, index) => (
-                <div className="my-8 px-8 py-4 border border-gray-200 bg-gray-50 rounded" key={index}>
-                  <span className="font-bold">{convertDate(inquiry.data.createdAt)}</span>
+                <div className="my-8 px-8 py-4 border border-gray-200 bg-gray-50 rounded relative grid gap-1 grid-cols-1 md:grid-cols-2 lg:grid-cols-3" key={index}>
+                  <span className="absolute -top-6 text-xs text-gray-600">{convertDate(inquiry.data.createdAt)}</span>
 
                   {Object.entries(inquiry.data).map(([key, value]) => (
-                    <div className="my-2" key={key}>
-                      <p>{key}</p>
-                      {value}
+                    <div className="px-4 py-2 bg-white" key={key}>
+                      <p className="capitalize text-xs border-b">{key}</p>
+                      <p className="pt-2">{value}</p>
                     </div>
                   ))}
                 </div>
               ))}
             </div>
 
-            <h2 className="text-xl">{applications && applications.length ? `Your current applications:` : ``}</h2>
-            <div className="flex flex-wrap gap-4 ">
+            <h2 className="text-xl text-brand mb-4">{applications && applications.length ? `Your current applications:` : ``}</h2>
+            <div className="flex flex-wrap gap-4 justify-center">
               {applications.map((application, index) => (
-                <div className="my-8 px-8 py-4 border border-gray-200 bg-gray-50 rounded" key={index}>
-                  <span className="font-bold">{convertDate(application.data.createdAt)}</span>
+                <div className="my-8 px-8 py-4 border border-gray-200 bg-gray-50 rounded relative grid gap-1 grid-cols-1 md:grid-cols-2 lg:grid-cols-3" key={index}>
+                  <span className="absolute -top-6 text-xs text-gray-600">{convertDate(application.data.createdAt)}</span>
 
-                  {Object.entries(application.data).map(([key, value]) => (
-                    <div className="my-2" key={key}>
-                      <p>{key}</p>
-                      {value}
-                    </div>
-                  ))}
+                  {
+                    Object.entries(application.data).map(([key, value]) => (
+                      <div className="px-4 py-2 bg-white" key={key}>
+                        <p className="capitalize text-xs border-b">{key}</p>
+                        <p className="pt-2">{value}</p>
+                      </div>
+                    ))
+                  }
                 </div>
               ))}
             </div>
 
-            <h2 className="text-xl">{onboardings && onboardings.length ? `Your current onboardings:` : ``}</h2>
-            <div className="flex flex-wrap gap-4 ">
+            <h2 className="text-xl text-brand mb-4">{onboardings && onboardings.length ? `Your current onboardings:` : ``}</h2>
+            <div className="flex flex-wrap gap-4 justify-center">
               {onboardings.map((onboarding, index) => (
-                <div className="my-8 px-8 py-4 border border-gray-200 bg-gray-50 rounded" key={index}>
-                  <span className="font-bold">{convertDate(onboarding.data.createdAt)}</span>
+                <div className="my-8 px-8 py-4 border border-gray-200 bg-gray-50 rounded relative grid gap-1 grid-cols-1 md:grid-cols-2 lg:grid-cols-3" key={index}>
+                  <span className="absolute -top-6 text-xs text-gray-600">{convertDate(onboarding.data.createdAt)}</span>
 
-                  {Object.entries(onboarding.data).map(([key, value]) => (
-                    <div className="my-2" key={key}>
-                      <p>{key}</p>
-                      {value}
-                    </div>
-                  ))}
+                  {
+                    Object.entries(onboarding.data).map(([key, value]) => (
+                      <div className="px-4 py-2 bg-white" key={key}>
+                        <p className="capitalize text-xs border-b">{key}</p>
+                        <p className="pt-2">{value}</p>
+                      </div>
+                    ))
+                  }
                 </div>
               ))}
             </div>
 
           </div>
-        </Main>
+        </Main >
       }
       <style jsx>{`
         .wrapper {
