@@ -1,8 +1,8 @@
 import { Fragment } from 'react'
 import { useRouter } from 'next/router'
 import { NextSeo } from 'next-seo'
-import Navigation from '../Navigation'
-import Footer from '../Footer'
+import Navigation from './Navigation'
+import Footer from './Footer'
 
 const addBrandToTitle = (title, addSuffix = true) => (addSuffix ? `${title} | FairRate` : title)
 

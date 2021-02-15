@@ -1,6 +1,6 @@
 import { signIn, signOut, useSession } from 'next-auth/client'
 import Link from 'next/link'
-import Main from '../components/main'
+import Main from '../components/Main'
 import Button from '../components/form/Button'
 
 export default function Home() {
@@ -9,15 +9,15 @@ export default function Home() {
   return (
     <>
       <Main title='FairRate Mortgage App' titleSuffix={false}>
-        <div className="flex flex-col items-center justify-center px-6 pt-12 pb-32">
+        <div className="bg-floorplan bg-cover flex flex-col items-center justify-center px-6 pt-12 pb-32">
 
           <h1 className="text-center sm:w-1/3 md:w-2/5">
             Get the right home loan at a great rate
-        </h1>
+          </h1>
 
           <h2 className="mt-8 mb-16 text-center sm:w-1/3 md:w-2/5 p-4 bg-opacity-60 bg-white">
             Compare, choose &amp; settle with America’s number 1 online home loan platform
-        </h2>
+          </h2>
 
           <Link href="/apply">
             <a className="mb-4">
@@ -32,12 +32,6 @@ export default function Home() {
           </Link>
         </div>
       </Main>
-      <style jsx>{`
-        div {
-          background: url('/icons/bg/floorplan.jpg') no-repeat;
-          background-size: cover;
-        }
-      `}</style>
     </>
   )
 }

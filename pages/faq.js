@@ -1,18 +1,11 @@
-import Main from '../components/main'
+import Main from '../components/Main'
 
-const FAQ = () => {
-
-  return (
-    <Main title='FAQ' titleSuffix={true}>
-      <div className="flex items-center justify-center my-16">
-        <h1>FAQ</h1>
-      </div>
-
-      <style jsx>{`
-        
-      `}</style>
-    </Main>
-  )
-}
+const FAQ = () => (
+  <Main title='FAQ' titleSuffix={true}>
+    <div className="flex items-center justify-center my-16 px-6">
+      <h1>FAQ</h1>
+    </div>
+  </Main>
+)
 
 export default FAQ

@@ -9,6 +9,16 @@ module.exports = {
 
     extend: {
 
+      colors: {
+        'brand-lighter': 'var(--color-brand)',
+        'brand': 'var(--color-brand)',
+        'brand-dark': 'var(--color-brand)',
+      },
+
+      backgroundImage: theme => ({
+        'floorplan': "url('/icons/bg/floorplan.jpg')"
+      }),
+
       fontFamily: {
         'open-sans': '"Open Sans", Helvetica, Arial, sans-serif',
       },
@@ -16,12 +26,6 @@ module.exports = {
       textColor: {
         'gray-999': '#999',
       },
-
-      colors: {
-        'brand-lighter': 'var(--color-brand)',
-        'brand': 'var(--color-brand)',
-        'brand-dark': 'var(--color-brand)',
-      }
     },
   },
 

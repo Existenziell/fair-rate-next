@@ -1,19 +1,12 @@
-import Main from '../components/main'
+import Main from '../components/Main'
 import ContactForm from '../components/form/ContactForm'
 
-const Contact = () => {
-
-  return (
-    <Main title='Contact' titleSuffix={true}>
-      <div className="flex items-center justify-center my-16">
-        <ContactForm />
-      </div>
-
-      <style jsx>{`
-        
-      `}</style>
-    </Main>
-  )
-}
+const Contact = () => (
+  <Main title='Contact' titleSuffix={true}>
+    <div className="flex items-center justify-center my-16 px-6">
+      <ContactForm />
+    </div>
+  </Main>
+)
 
 export default Contact

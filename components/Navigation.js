@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 export default function Navigation() {
-  let links = ['Reviews', 'Contact', 'Help']
+  let links = ['Reviews', 'Contact', 'Help', 'FAQ']
   const router = useRouter()
   const [session, loading] = useSession()
 

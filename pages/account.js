@@ -1,7 +1,7 @@
 import { useSession, getSession } from 'next-auth/client'
 import { connectToDatabase } from "../lib/mongodb"
 import Image from 'next/image'
-import Main from '../components/main'
+import Main from '../components/Main'
 const { ObjectId } = require('mongodb')
 
 const Account = (props) => {
