@@ -52,7 +52,7 @@ const Account = (props) => {
                 <div className="my-8 px-8 py-4 border border-gray-200 bg-gray-50 rounded relative grid gap-1 grid-cols-1 md:grid-cols-2 lg:grid-cols-3" key={index}>
                   <span className="absolute -top-6 text-xs text-gray-600">{convertDate(inquiry.createdAt)}</span>
 
-                  {Object.entries(inquiry.data).map(([key, value]) => (
+                  {Object.entries(inquiry).map(([key, value]) => (
                     <div className="px-4 py-2 bg-white" key={key}>
                       <p className="capitalize text-xs border-b">{key}</p>
                       <p className="pt-2">{value}</p>
@@ -69,7 +69,7 @@ const Account = (props) => {
                   <span className="absolute -top-6 text-xs text-gray-600">{convertDate(application.createdAt)}</span>
 
                   {
-                    Object.entries(application.data).map(([key, value]) => (
+                    Object.entries(application).map(([key, value]) => (
                       <div className="px-4 py-2 bg-white" key={key}>
                         <p className="capitalize text-xs border-b">{key}</p>
                         <p className="pt-2">{value}</p>
@@ -87,7 +87,7 @@ const Account = (props) => {
                   <span className="absolute -top-6 text-xs text-gray-600">{convertDate(onboarding.createdAt)}</span>
 
                   {
-                    Object.entries(onboarding.data).map(([key, value]) => (
+                    Object.entries(onboarding).map(([key, value]) => (
                       <div className="px-4 py-2 bg-white" key={key}>
                         <p className="capitalize text-xs border-b">{key}</p>
                         <p className="pt-2">{value}</p>
@@ -140,8 +140,6 @@ export async function getServerSideProps(ctx) {
     .collection("onboardings")
     .find({ "_userId": ObjectId(session.user.id) })
     .toArray()
-
-  console.log(inquiries);
 
   return {
     props: {
