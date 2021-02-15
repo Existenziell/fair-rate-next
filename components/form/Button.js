@@ -17,7 +17,7 @@ const Button = ({ text, size, modifier, icon }) => {
 
       <style jsx>{`
         button {
-          background: ${icon ? `url('/icons/bg/${icon}.svg') no-repeat 5% center` : `none`};
+          background: ${icon ? `url('/icons/svg/outline/${icon}.svg') no-repeat 5% center` : `none`};
           background-size: ${isPromo ? '12%' : '8%'};
         }
       `}</style>

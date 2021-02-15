@@ -102,7 +102,7 @@ export default function ApplyForm() {
             ? (
               <div className="mt-8">
                 {currentStep > 1 &&
-                  <a onClick={previousStep} className="transition-all	cursor-pointer block absolute w-16 left-8 -top-8 text-gray-200 hover:text-gray-500">
+                  <a onClick={previousStep} className="transition-all	cursor-pointer block absolute w-16 left-8 -top-8 text-gray-400 hover:text-gray-600">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                     </svg>

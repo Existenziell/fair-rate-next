@@ -20,7 +20,7 @@ export default async (req, res) => {
   data.createdAt = Date.now()
   if (session) data._userId = ObjectId(session.user.id)
 
-  db.collection('inquiries').insertOne({ data }, async function (error, response) {
+  db.collection('inquiries').insertOne({ ...data }, async function (error, response) {
     if (error) {
       res.status(404).send(false)
     } else {

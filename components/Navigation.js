@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 export default function Navigation() {
-  let links = ['Reviews', 'Contact', 'Help', 'FAQ']
+  let links = ['Reviews', 'Contact', 'Help']
   const router = useRouter()
   const [session, loading] = useSession()
 
@@ -94,9 +94,12 @@ export default function Navigation() {
             <Link href='/account'>
               <a className='account-icon'>
                 <span className="navbar-link-fake">Account</span>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
+                <Image
+                  src='/icons/svg/outline/user.svg'
+                  alt='Account Icon'
+                  width={40}
+                  height={40}
+                />
               </a>
             </Link>
             <button onClick={() => signOut()} className="navbar-link-fake ml-4">

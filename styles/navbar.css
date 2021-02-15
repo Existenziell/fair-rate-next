@@ -26,11 +26,11 @@
 }
 
 
-.account-icon svg {
+.account-icon div {
   width: 35px;
 }
 
-.account-icon span {
+.account-icon span, .navbar-link-fake {
   display: none;
 }
 
@@ -184,10 +184,10 @@
     height: 100%;
   }
 
-  .account-icon svg {
-    display: none;
+  .account-icon div {
+    display: none !important; /* needed to override styles set by nextjs Image tag */
   }
-  .account-icon span {
+  .account-icon span, .navbar-link-fake {
     display: block;
   }
 

@@ -16,7 +16,7 @@ module.exports = {
       },
 
       backgroundImage: theme => ({
-        'floorplan': "url('/icons/bg/floorplan.jpg')"
+        'floorplan': "url('/icons/floorplan.jpg')"
       }),
 
       fontFamily: {

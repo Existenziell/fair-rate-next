@@ -1,4 +1,4 @@
-import { useSession, getSession } from 'next-auth/client'
+import { useSession, getSession, signOut } from 'next-auth/client'
 import { connectToDatabase } from "../lib/mongodb"
 import Image from 'next/image'
 import Main from '../components/Main'
@@ -30,17 +30,19 @@ const Account = (props) => {
 
         <Main title='My Account' titleSuffix={true}>
           <div className="flex flex-col items-center justify-center my-16 px-8">
-            <h1 className="mb-2">Welcome {session.user.name}</h1>
-            <p className="mb-8">{session.user.email}</p>
 
             {session.user.image &&
-              <div className="wrapper shadow-2xl mb-8">
+              <div className="flex flex-row gap-8 shadow-md p-8 mb-6">
                 <Image
                   src={session.user.image}
                   width={200}
                   height={200}
                   alt="Avatar"
                 />
+                <div>
+                  <h1 className="mb-2">Welcome {session.user.name}</h1>
+                  <p className="mb-8">{session.user.email}</p>
+                </div>
               </div>
             }
 
@@ -95,15 +97,13 @@ const Account = (props) => {
                 </div>
               ))}
             </div>
-
           </div>
+
+          <button onClick={() => signOut()} className='navbar-link m-auto flex my-6'>
+            Sign out
+          </button>
         </Main >
       }
-      <style jsx>{`
-        .wrapper {
-          height: 200px
-        }
-      `}</style>
     </>
   )
 }
