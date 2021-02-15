@@ -35,7 +35,7 @@ const RadioButtons = ({ values, name, onChange, checked }) => {
           opacity: 0;
         }
         label input:checked ~ div > i {
-          background-color: rgb(255, 0, 131);
+          background-color: rgb(199, 21, 133);
         }
         .option-inner {
           border-radius: 5px;
