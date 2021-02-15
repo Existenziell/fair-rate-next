@@ -71,7 +71,7 @@ export default function ContactForm() {
           name={"message"}
           placeholder="Your Message"
           onChange={onChange}
-          required={false}
+          required={true}
         />
 
         {error &&
