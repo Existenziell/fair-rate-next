@@ -20,9 +20,9 @@ export default async (req, res) => {
     data.createdAt = Date.now()
     if (session) data._userId = ObjectId(session.user.id)
 
-    await db.collection('onboardings').insertOne({ data })
+    await db.collection('onboardings').insertOne({ ...data })
     res.status(200).send(true)
   } catch (error) {
-    console.error("Error", error)
+    res.status(404).send(false)
   }
 }

@@ -9,22 +9,21 @@ const { ObjectId } = require('mongodb')
 
 export default async (req, res) => {
 
-  const { db } = await connectToDatabase()
-  const session = await getSession({ req })
+  try {
+    const { db } = await connectToDatabase()
+    const session = await getSession({ req })
 
-  let data = req.body
-  if (!data) {
-    res.status(404).send(false)
-    return
-  }
-  data.createdAt = Date.now()
-  if (session) data._userId = ObjectId(session.user.id)
-
-  db.collection('inquiries').insertOne({ ...data }, async function (error, response) {
-    if (error) {
+    let data = req.body
+    if (!data) {
       res.status(404).send(false)
-    } else {
-      res.status(200).send(true)
+      return
     }
-  })
+    data.createdAt = Date.now()
+    if (session) data._userId = ObjectId(session.user.id)
+
+    await db.collection('inquiries').insertOne({ ...data })
+    res.status(200).send(true)
+  } catch (error) {
+    res.status(404).send(false)
+  }
 }

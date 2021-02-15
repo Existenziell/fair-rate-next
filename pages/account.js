@@ -50,7 +50,7 @@ const Account = (props) => {
             <div className="flex flex-wrap gap-4 justify-center">
               {inquiries.map((inquiry, index) => (
                 <div className="my-8 px-8 py-4 border border-gray-200 bg-gray-50 rounded relative grid gap-1 grid-cols-1 md:grid-cols-2 lg:grid-cols-3" key={index}>
-                  <span className="absolute -top-6 text-xs text-gray-600">{convertDate(inquiry.data.createdAt)}</span>
+                  <span className="absolute -top-6 text-xs text-gray-600">{convertDate(inquiry.createdAt)}</span>
 
                   {Object.entries(inquiry.data).map(([key, value]) => (
                     <div className="px-4 py-2 bg-white" key={key}>
@@ -66,7 +66,7 @@ const Account = (props) => {
             <div className="flex flex-wrap gap-4 justify-center">
               {applications.map((application, index) => (
                 <div className="my-8 px-8 py-4 border border-gray-200 bg-gray-50 rounded relative grid gap-1 grid-cols-1 md:grid-cols-2 lg:grid-cols-3" key={index}>
-                  <span className="absolute -top-6 text-xs text-gray-600">{convertDate(application.data.createdAt)}</span>
+                  <span className="absolute -top-6 text-xs text-gray-600">{convertDate(application.createdAt)}</span>
 
                   {
                     Object.entries(application.data).map(([key, value]) => (
@@ -84,7 +84,7 @@ const Account = (props) => {
             <div className="flex flex-wrap gap-4 justify-center">
               {onboardings.map((onboarding, index) => (
                 <div className="my-8 px-8 py-4 border border-gray-200 bg-gray-50 rounded relative grid gap-1 grid-cols-1 md:grid-cols-2 lg:grid-cols-3" key={index}>
-                  <span className="absolute -top-6 text-xs text-gray-600">{convertDate(onboarding.data.createdAt)}</span>
+                  <span className="absolute -top-6 text-xs text-gray-600">{convertDate(onboarding.createdAt)}</span>
 
                   {
                     Object.entries(onboarding.data).map(([key, value]) => (
@@ -128,18 +128,20 @@ export async function getServerSideProps(ctx) {
 
   const inquiries = await db
     .collection("inquiries")
-    .find({ "data._userId": ObjectId(session.user.id) })
+    .find({ "_userId": ObjectId(session.user.id) })
     .toArray()
 
   const applications = await db
     .collection("applications")
-    .find({ "data._userId": ObjectId(session.user.id) })
+    .find({ "_userId": ObjectId(session.user.id) })
     .toArray()
 
   const onboardings = await db
     .collection("onboardings")
-    .find({ "data._userId": ObjectId(session.user.id) })
+    .find({ "_userId": ObjectId(session.user.id) })
     .toArray()
+
+  console.log(inquiries);
 
   return {
     props: {
