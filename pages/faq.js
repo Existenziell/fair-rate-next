@@ -7,7 +7,7 @@ const FAQ = () => (
       <div className="flex flex-col items-center justify-center my-16 px-6">
         <h1>Instructions for Form 1003</h1>
 
-        <div className="mb-8 px-6 md:p-16 lg:p-32">
+        <div className="mb-8 px-6 md:px-16 lg:px-32">
 
           <h2>Uniform Residential Loan Application</h2>
           <p>
