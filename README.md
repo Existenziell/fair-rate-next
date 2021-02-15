@@ -17,6 +17,7 @@ Netlify:
 - [HeroIcons](https://heroicons.com/)
 - [NextAuth](https://next-auth-example.now.sh/api-example)
 - [Auth0](https://manage.auth0.com/dashboard)
+- [Mailgun](https://app.mailgun.com/app/dashboard)
 
 ## Resources
 

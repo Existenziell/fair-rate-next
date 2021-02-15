@@ -86,7 +86,7 @@ export default function Navigation() {
       <div className="w-4/12 flex flex-row items-center justify-end">
 
         {!session ?
-          <button onClick={() => signIn()} className='navbar-link'>
+          <button onClick={() => signIn('auth0')} className='navbar-link'>
             Sign in
           </button>
           :

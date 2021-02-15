@@ -1,5 +1,4 @@
-import { useSession, getSession, signIn } from 'next-auth/client'
-import { useEffect } from 'react'
+import { useSession, getSession } from 'next-auth/client'
 import { connectToDatabase } from "../lib/mongodb"
 import Image from 'next/image'
 import Main from '../components/main'
@@ -7,14 +6,10 @@ const { ObjectId } = require('mongodb')
 
 const Account = (props) => {
 
-  const [session] = useSession()
+  const [session, loading] = useSession()
   const onboardings = JSON.parse(props.onboardings)
   const applications = JSON.parse(props.applications)
   const inquiries = JSON.parse(props.inquiries)
-
-  useEffect(() => {
-    if (!session) signIn() // Redirect to sign in page when not logged in
-  }, [])
 
   const convertDate = (timestamp) => {
     return new Date(timestamp)
@@ -29,18 +24,19 @@ const Account = (props) => {
 
   return (
     <>
-      {!session ?
-        <div></div>
-        :
+      {loading && <div className='text-center'>Loading...</div>}
+
+      {session &&
+
         <Main title='My Account' titleSuffix={true}>
           <div className="flex flex-col items-center justify-center my-16 px-8">
-            <h1 className="mb-2">Welcome {session?.user.name}</h1>
-            <p className="mb-8">{session?.user.email}</p>
+            <h1 className="mb-2">Welcome {session.user.name}</h1>
+            <p className="mb-8">{session.user.email}</p>
 
-            {session?.user.image &&
+            {session.user.image &&
               <div className="wrapper shadow-2xl mb-8">
                 <Image
-                  src={session?.user.image}
+                  src={session.user.image}
                   width={200}
                   height={200}
                   alt="Avatar"
@@ -118,11 +114,12 @@ export async function getServerSideProps(ctx) {
   const { db } = await connectToDatabase()
   const session = await getSession(ctx)
 
-  // Redirect to sign in page when not logged in
+  // Redirect to home when not logged in
   if (!session) {
-    ctx.res.setHeader("location", "/api/auth/signin")
+    ctx.res.setHeader("location", "/")
     ctx.res.statusCode = 302
     ctx.res.end()
+    return { props: {} }
   }
 
   const user = await db
