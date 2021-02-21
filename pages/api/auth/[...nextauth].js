@@ -107,8 +107,8 @@ export default NextAuth({
     // async jwt(token, user, account, profile, isNewUser) { return token }
     session: async (session, user) => {
       // Add mongodb id from current user to session 
-      session.user.id = user.id;
-      return Promise.resolve(session);
+      session.user.id = user.id
+      return Promise.resolve(session)
     }
   },
 

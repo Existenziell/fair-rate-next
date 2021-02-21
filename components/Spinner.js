@@ -144,7 +144,6 @@ const Spinner = ({ type }) => {
 
         .lds-ripple {
           display: inline-block;
-          // position: relative;
           width: 10px;
           height: 50px;
         }

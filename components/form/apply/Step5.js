@@ -1,44 +1,61 @@
-import { useState } from 'react'
-import RadioButtons from '../RadioButtons'
-import TextArea from '../TextArea'
+import TextInput from '../TextInput'
+import NumberInput from '../NumberInput'
+import Select from '../Select'
+import states from '../states.json'
 
 export default function Step5({ onChange, setError, formData }) {
 
-  const values = ["Fixed Rate", "GPM", "ARM (type)", "Other (explain)"]
-  const condition = values[3]
-  const [textareaOpen, setTextareaOpen] = useState(formData.amortizationType === condition)
-
   const validate = (e) => {
-    const { name, value } = e.target
-    if (value === condition) {
-      setTextareaOpen(true)
+    const zipLength = e.target.value.length
+    if (zipLength > 5 || zipLength < 5) {
+      setError("ZIP codes are usually 5 numbers long")
     } else {
-      setTextareaOpen(false)
+      setError("")
+      onChange(e)
     }
-    onChange(e)
   }
 
   return (
     <>
-      <h1 className="text-base text-gray-400 mt-6">I. Type of mortgage and terms of loan</h1>
-      <h2 className="my-8 text-2xl">Amortization Type:</h2>
+      <h1 className="text-base text-gray-400 mt-6">II. Property Information and purpose of loan</h1>
+      <h2 className="my-8 text-2xl">Subject Property Address:</h2>
 
-      <RadioButtons
-        name={"amortizationType"}
-        values={values}
-        checked={formData.amortizationType}
-        onChange={validate}
+      <TextInput
+        value={formData.propertyAddressStreet}
+        name={"propertyAddressStreet"}
+        label={"Street"}
+        placeholder={"Lombard Street"}
+        onChange={onChange}
+        required={true}
       />
 
-      { textareaOpen &&
-        <TextArea
-          value={formData.amortizationTypeAddon}
-          name={"amortizationTypeAddon"}
-          placeholder="More space to describe your case."
-          onChange={onChange}
-          required={false}
-        />
-      }
+      <TextInput
+        value={formData.propertyAddressCity}
+        name={"propertyAddressCity"}
+        label={"City"}
+        placeholder={"San Francisco"}
+        onChange={onChange}
+        required={true}
+      />
+
+      <Select
+        values={states}
+        name={"propertyAddressState"}
+        label={"State"}
+        placeholder={"Please select your option"}
+        onChange={onChange}
+        selected={formData.propertyAddressState}
+        required={true}
+      />
+
+      <NumberInput
+        placeholder={"94111"}
+        name={"propertyAddressZip"}
+        label={"ZIP Code"}
+        onChange={validate}
+        value={formData.propertyAddressZip}
+        required={true}
+      />
     </>
   )
 }

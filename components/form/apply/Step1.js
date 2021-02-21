@@ -1,12 +1,44 @@
+import { useState } from 'react'
+import RadioButtons from '../RadioButtons'
+import TextArea from '../TextArea'
+
 export default function Step1({ onChange, setError, formData }) {
+
+  const values = ["VA", "Conventional", "FHA", "USDA / Rural Housing Service", "Other (explain)"]
+  const condition = values[4]
+  const [textareaOpen, setTextareaOpen] = useState(formData.mortgageType === condition)
+
+  const validate = (e) => {
+    const { name, value } = e.target
+    if (value === condition) {
+      setTextareaOpen(true)
+    } else {
+      setTextareaOpen(false)
+    }
+    onChange(e)
+  }
+
   return (
     <>
-      <h1 className="mb-16">Uniform Residential Loan Application</h1>
-      <div className="text-justify px-8">
-        <p className="mb-8">This application is designed to be completed by the applicant(s) with the Lender’s assistance.</p>
-        <p className="mb-8">Applicants should complete this form as “Borrower” or “Co-Borrower,” as applicable. Co-Borrower information must also be provided (and the appropriate box checked) when the income or assets of a person other than the Borrower (including the Borrower’s spouse) will be used as a basis for loan qualification or  the income or assets of the Borrower’s spouse or other person who has community property rights pursuant to state law will not be used as a basis for loan qualification, but his or her liabilities must be considered because the spouse or other person has community property rights pursuant to applicable law and Borrower resides in a community property state, the security property is located in a community property state, or the Borrower is relying on other property located in a community property state as a basis for repayment of the loan.</p>
-        <p className="mb-8">If this is an application for joint credit, Borrower and Co-Borrower each agree that we intend to apply for joint credit.</p>
-      </div>
+      <h1 className="text-base text-gray-400 mt-6">I. Type of mortgage and terms of loan</h1>
+      <h2 className="my-8 text-2xl">Mortgage Applied for:</h2>
+
+      <RadioButtons
+        name={"mortgageType"}
+        values={values}
+        checked={formData.mortgageType}
+        onChange={validate}
+      />
+
+      { textareaOpen &&
+        <TextArea
+          value={formData.mortgageTypeAddon}
+          name={"mortgageTypeAddon"}
+          placeholder="More space to describe your case."
+          onChange={onChange}
+          required={false}
+        />
+      }
     </>
   )
 }
