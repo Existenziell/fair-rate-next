@@ -21,13 +21,13 @@ export default function Home() {
 
           <Link href="/apply">
             <a className="mb-4">
-              <Button text="I want to refinance" modifier="primary promo" icon='currency-dollar' size={340} />
+              <Button text="I want to refinance" modifier="primary promo" icon='dollar' size={320} />
             </a>
           </Link>
 
           <Link href="/onboarding">
             <a>
-              <Button text="I want to buy a home" modifier="primary promo" icon='home' size={340} />
+              <Button text="I want to buy a home" modifier="primary promo" icon='house' size={320} />
             </a>
           </Link>
         </div>

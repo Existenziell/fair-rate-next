@@ -83,17 +83,18 @@ select:-webkit-autofill:focus {
 }
 
 .button.promo {
-  padding: 20px 40px;
+  padding: 20px 30px;
   font-size: 1.5rem;
 }
 
-.button.promo.icon {
-  padding-left: 80px;
+.button.promo.icon svg {
+  height: 30px;
+  padding-right: 10px;
 }
 
-.button.icon {
+/*.button.icon {
   padding-left: 40px;
-}
+} */
 
 .button.primary {
   background-color: var(--color-brand);
