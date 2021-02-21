@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
 import Link from 'next/link'
+// import Toggle from './form/Toggle'
 
 export default function Navigation() {
   let links = ['Reviews', 'Contact', 'Help']
@@ -104,6 +105,7 @@ export default function Navigation() {
             </button>
           </>
         }
+        {/* <Toggle /> */}
       </div>
 
     </nav>
