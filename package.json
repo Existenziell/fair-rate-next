@@ -16,7 +16,6 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@fortawesome/react-fontawesome": "^0.1.14",
     "autoprefixer": "^10.0.4",
-    "axios": "^0.21.1",
     "mongodb": "^3.6.3",
     "next": "latest",
     "next-auth": "^3.4.1",

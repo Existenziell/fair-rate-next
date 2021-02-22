@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import Router, { useRouter } from 'next/router'
-import axios from 'axios'
 import Main from '../../components/Main'
 import Step1 from '../../components/form/onboarding/Step1'
 import Step2 from '../../components/form/onboarding/Step2'
@@ -49,19 +48,20 @@ export default function OnboardingForm() {
       setFormButtonDisabled(true)
       document.getElementById("submitBtn").classList.add("disabled")
 
-      const data = JSON.stringify(formData)
-      const res = await axios({
-        method: "post",
-        url: "/api/onboard",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        data
-      })
-
-      res.status === 200 ?
-        Router.push('/approved') :
-        setError("We are sorry, an error occurred.")
+      try {
+        const res = await fetch('/api/onboard', {
+          method: "post",
+          body: JSON.stringify(formData),
+          headers: {
+            "Content-Type": "application/json"
+          }
+        })
+        res.status === 200 ?
+          Router.push('/approved') :
+          setError(res.statusText)
+      } catch (error) {
+        setError(error.message)
+      }
     }
   }
 

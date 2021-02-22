@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import Router from 'next/router'
-import axios from "axios"
 import TextInput from '../form/TextInput'
 import TextArea from '../form/TextArea'
 import Spinner from "../Spinner"
@@ -24,19 +23,17 @@ export default function ContactForm() {
       setFormButtonDisabled(true)
       document.getElementById("submitBtn").classList.add("disabled")
 
-      const data = JSON.stringify(formData)
       try {
-        const res = await axios({
+        const res = await fetch('/api/contact', {
           method: "post",
-          url: "/api/contact",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          data
+          body: JSON.stringify(formData),
+          headers: { "Content-Type": "application/json" }
         })
-        Router.push('/success')
+        res.status === 200 ?
+          Router.push('/success') :
+          setError(res.statusText)
       } catch (error) {
-        setError("We are sorry, an error occurred.", error)
+        setError(error.message)
       }
     }
   }
