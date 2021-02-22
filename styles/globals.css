@@ -19,6 +19,7 @@ email: bauer.christof@gmail.com
 html {
   font-family: 'Merriweather', Georgia, serif;
   font-size: 16px;
+  -webkit-tap-highlight-color: transparent;
 }
 
 *:focus {
@@ -56,6 +57,7 @@ select:-webkit-autofill:focus {
   -webkit-box-shadow: 0 0 0px 1000px #ffffff inset !important;
   box-shadow: 0 0 0px 1000px #ffffff inset !important;
 }
+
 
 /* 
 * Button
