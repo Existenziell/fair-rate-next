@@ -40,7 +40,7 @@ const Link = (props) => {
     const accessToken = await response.json()
 
     // Handle response ... save token... etc...
-    // console.log("We have an access_token!", accessToken.access_token);
+    // console.log("We have an access_token!", accessToken.access_token)
     Router.push('/approved')
   }, [])
 

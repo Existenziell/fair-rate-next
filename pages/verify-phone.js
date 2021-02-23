@@ -1,3 +1,4 @@
+import { getSession, useSession, signIn } from 'next-auth/client'
 import { useState } from 'react'
 import Link from 'next/link'
 import TelInput from '../components/form/TelInput'
@@ -8,7 +9,9 @@ import OtpInput from 'react-otp-input'
 
 export default function verifyPhone() {
 
+  const [session, loading] = useSession()
   const [verifying, setVerifying] = useState(false)
+  const [phoneNumber, setPhoneNumber] = useState(0)
   const [otp, setOtp] = useState(0)
   const [userOtp, setUserOtp] = useState(0)
 
@@ -27,28 +30,40 @@ export default function verifyPhone() {
     return otp
   }
 
-  const checkOtp = (e) => {
+  const checkOtp = async (e) => {
     e.preventDefault()
     if (parseInt(userOtp) === otp) {
-      Router.push(`/verified`)
+      // If no session, redirect to login first
+      if (!session) signIn('auth0')
+      // Add verified phone number to user object in DB
+      const res = await fetch('/api/twilio/update-phone', {
+        method: "post",
+        body: JSON.stringify({ phoneNumber }),
+        headers: { "Content-Type": "application/json" }
+      })
+      res.status === 200 ?
+        Router.push(`/verified`) :
+        console.log(res.statusText)
     } else {
-      // console.log(`Error: otp: ${otp} | userOtP: ${userOtp} | otp: ${typeof (otp)} | userOtP: ${typeof (userOtp)}`)
+      console.log(`Error: otp: ${otp} | userOtP: ${userOtp} | otp: ${typeof (otp)} | userOtP: ${typeof (userOtp)}`)
     }
   }
 
   const sendSMS = async (number) => {
     const otp = getOTP()
     const message = `Thank you, your code is: ${otp}`
+    const to = number.replaceAll(' ', '').trim()
 
-    const res = await fetch("/api/twilio/sendSMS", {
+    const res = await fetch("/api/twilio/send-sms", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ to: number.replaceAll(' ', '').trim(), message }),
+      body: JSON.stringify({ to, message }),
     })
 
     const data = await res.json()
+    setPhoneNumber(to)
     setVerifying(true)
   }
 
