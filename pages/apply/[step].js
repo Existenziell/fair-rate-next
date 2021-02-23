@@ -99,7 +99,7 @@ export default function ApplyForm() {
                     <Link href={`/apply/${step - 1}`}>
                       <a className="transition-all	cursor-pointer block absolute w-16 left-8 -top-8 text-gray-400 hover:text-gray-600">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
                         </svg>
                       </a>
                     </Link>

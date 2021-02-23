@@ -30,10 +30,10 @@ const Account = (props) => {
       {session &&
 
         <Main title='My Account' titleSuffix={true}>
-          <div className="flex flex-col items-center justify-center my-16 px-8">
+          <div className="flex flex-col items-center justify-center flex-wrap my-16 px-8">
 
             {session.user.image &&
-              <div className="flex flex-row gap-8 shadow-md p-8 mb-6">
+              <div className="flex flex-row flex-wrap gap-8 shadow-md p-8 mb-6">
                 <Image
                   src={session.user.image}
                   width={200}
@@ -43,9 +43,7 @@ const Account = (props) => {
                 <div>
                   <h1 className="mb-2">Welcome {session.user.name}</h1>
                   <p className="mb-8">{session.user.email}</p>
-                  <div className="">
-                    <PlaidConnect />
-                  </div>
+                  <PlaidConnect />
                 </div>
               </div>
             }
