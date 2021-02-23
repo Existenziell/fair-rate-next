@@ -1,7 +1,7 @@
 import { Provider as AuthProvider } from 'next-auth/client'
 import { AppWrapper } from '../context/state'
 import Head from '../components/Head'
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion"
 
 import '../styles/globals.css'
 import '../styles/navbar.css'
@@ -12,7 +12,7 @@ const FairRateApp = ({ Component, pageProps, router }) => {
   // Added exitBeforeEnter prop to AnimatePresence to make sure the exiting page finishes its exit animation before the next page starts animating.
   // Added a key prop to <Component> and set it to the current route. 
   // This is important so that AnimatePresence can track the presence of child components in the tree.
-  // console.log(router);
+
   return (
     <AuthProvider
       options={{ clientMaxAge: 0, keepAlive: 1 }}
