@@ -9,15 +9,15 @@ import Step5 from '../../components/form/onboarding/Step5'
 import Step6 from '../../components/form/onboarding/Step6'
 import Step7 from '../../components/form/onboarding/Step7'
 import Step8 from '../../components/form/onboarding/Step8'
-import Step9 from '../../components/form/onboarding/Step9'
 import Spinner from '../../components/Spinner'
 
 export default function OnboardingForm() {
 
   const [formData, setFormData] = useState([])
   const [formButtonDisabled, setFormButtonDisabled] = useState(false)
-  const totalSteps = 9
+  const totalSteps = 8
   const [error, setError] = useState(false)
+  const [phoneValidated, setPhoneValidated] = useState(false)
 
   const router = useRouter()
   const step = parseInt(router.query.step)
@@ -57,7 +57,7 @@ export default function OnboardingForm() {
           }
         })
         res.status === 200 ?
-          Router.push('/success') :
+          Router.push('/verify-phone') :
           setError(res.statusText)
       } catch (error) {
         setError(error.message)
@@ -100,9 +100,6 @@ export default function OnboardingForm() {
             {step === 8 &&
               <Step8 onChange={onChange} formData={formData} setError={setError} />
             }
-            {step === 9 &&
-              <Step9 onChange={onChange} formData={formData} setError={setError} />
-            }
 
             {error &&
               <div className="mt-8 text-red-400">
@@ -130,7 +127,7 @@ export default function OnboardingForm() {
                       onClick={handleSubmit}
                       disabled={formButtonDisabled}
                     >
-                      <span>Protect my account</span>
+                      <span>Complete Onboarding</span>
                       {formButtonDisabled &&
                         <Spinner type="dualring" className="w-1" />
                       }

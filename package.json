@@ -25,8 +25,10 @@
     "postcss": "^8.1.10",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
+    "react-otp-input": "^2.3.0",
     "react-plaid-link": "^3.1.0",
     "sharp": "^0.26.3",
-    "tailwindcss": "^2.0.2"
+    "tailwindcss": "^2.0.2",
+    "twilio": "^3.56.0"
   }
 }
