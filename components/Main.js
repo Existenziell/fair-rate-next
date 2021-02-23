@@ -18,10 +18,11 @@ const Main = ({ title, children, titleSuffix = true }) => {
 
           <Navigation />
           <motion.main className='flex-1 overflow-scroll'
-            initial={{ x: -100, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.6 }}
-            exit={{ x: 100, opacity: 0 }} >
+          // initial={{ x: -100, opacity: 0 }}
+          // animate={{ x: 0, opacity: 1 }}
+          // transition={{ duration: 0.6 }}
+          // exit={{ x: 100, opacity: 0 }} 
+          >
             <NextSeo title={addBrandToTitle(title, titleSuffix)} />
             {children}
           </motion.main>
