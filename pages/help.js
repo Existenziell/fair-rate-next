@@ -2,7 +2,6 @@ import Link from 'next/link'
 import Main from '../components/Main'
 
 const Help = () => (
-
   <>
     <Main title='Help' titleSuffix={true}>
       <div className="flex flex-col items-center justify-center my-16 px-6">
