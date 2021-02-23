@@ -32,11 +32,11 @@ export default function Navigation() {
       e.preventDefault()
       if (navbar.classList.contains('opened')) {
         closeMobileNavbar()
-        document.querySelector('.main').removeEventListener('click', closeMobileNavbar)
+        document.querySelector('main').removeEventListener('click', closeMobileNavbar)
 
       } else {
         openMobileNavbar()
-        document.querySelector('.main').addEventListener('click', closeMobileNavbar)
+        document.querySelector('main').addEventListener('click', closeMobileNavbar)
       }
     })
 

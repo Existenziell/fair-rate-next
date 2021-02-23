@@ -8,8 +8,10 @@ const Button = ({ text, size, modifier, icon }) => {
   return (
     <>
       <button
-        type="button"
-        className={`button text-white  ${modifier} ${icon ? 'icon' : ''} flex items-center`}
+        className={`button font-sans flex items-center 
+          ${isPromo ? 'text-white' : 'text-gray-700'} 
+          ${modifier}
+        `}
         style={{ width: size ? `${size}px` : `auto` }}
       >
         {icon === 'dollar' &&

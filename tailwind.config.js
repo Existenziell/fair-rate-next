@@ -21,7 +21,8 @@ module.exports = {
       }),
 
       fontFamily: {
-        'open-sans': '"Open Sans", Helvetica, Arial, sans-serif',
+        sans: ['Lato', 'sans-serif'],
+        serif: ['Merriweather', 'serif'],
       },
 
       textColor: {

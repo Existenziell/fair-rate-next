@@ -4,7 +4,7 @@ class FairRateDocument extends Document {
 
   render() {
     return (
-      <Html lang="en">
+      <Html lang="en" className="font-serif">
         <Head />
         <body>
           <Main />

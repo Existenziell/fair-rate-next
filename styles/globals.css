@@ -17,7 +17,6 @@ email: bauer.christof@gmail.com
 
 
 html {
-  font-family: 'Merriweather', Georgia, serif;
   font-size: 16px;
   -webkit-tap-highlight-color: transparent;
 }
@@ -37,14 +36,6 @@ a:hover {
   transition: color 0.2s ease-in-out;
 }
 
-p > a {
-  border-bottom: 1px dotted var(--color-brand);
-}
-
-p > a:hover {
-  border-bottom: 1px solid var(--color-brand);
-  opacity: 0.65;
-}
 
 /* Remove blue background on Chrome autocomplete */
 input:-webkit-autofill,
@@ -68,7 +59,6 @@ select:-webkit-autofill:focus {
   outline: 0;
   font-size: 1rem;
   border-radius: 4px;
-  font-family: 'Lato', sans-serif;
   box-shadow: -5px -5px 20px white, 5px 5px 20px #333;
   transition: all 0.2s ease-in-out;
   padding: 10px 30px;
@@ -89,14 +79,10 @@ select:-webkit-autofill:focus {
   font-size: 1.5rem;
 }
 
-.button.promo.icon svg {
+.button svg {
   height: 30px;
   padding-right: 10px;
 }
-
-/*.button.icon {
-  padding-left: 40px;
-} */
 
 .button.primary {
   background-color: var(--color-brand);
