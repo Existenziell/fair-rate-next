@@ -1,4 +1,5 @@
-import { signIn, signOut, useSession } from 'next-auth/client'
+import { useSession } from 'next-auth/client'
+import { motion } from "framer-motion"
 import Link from 'next/link'
 import Main from '../components/Main'
 import Button from '../components/form/Button'
@@ -9,7 +10,7 @@ export default function Home() {
   return (
     <>
       <Main title='FairRate Mortgage App' titleSuffix={false}>
-        <div className="bg-floorplan bg-cover flex flex-col items-center justify-center px-6 pt-12 pb-32">
+        <div className="bg-floorplan bg-cover h-full flex flex-col items-center justify-center px-6 pt-12 pb-32">
 
           <h1 className="text-center sm:w-1/3 md:w-2/5">
             Get the right home loan at a great rate
@@ -20,15 +21,21 @@ export default function Home() {
           </h2>
 
           <Link href="/apply">
-            <a className="mb-4">
+            <motion.a className="mb-4"
+              initial={{ x: 100, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: 0.4, duration: 0.6 }} >
               <Button text="I want to refinance" modifier="primary promo" icon='dollar' size={320} />
-            </a>
+            </motion.a>
           </Link>
 
           <Link href="/onboarding">
-            <a>
+            <motion.a
+              initial={{ x: -100, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: 0.8, duration: 0.6 }} >
               <Button text="I want to buy a home" modifier="primary promo" icon='house' size={320} />
-            </a>
+            </motion.a>
           </Link>
         </div>
       </Main>

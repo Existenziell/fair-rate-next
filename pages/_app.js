@@ -1,4 +1,4 @@
-import { Provider } from 'next-auth/client'
+import { Provider as AuthProvider } from 'next-auth/client'
 import { AppWrapper } from '../context/state'
 import Head from '../components/Head'
 
@@ -6,9 +6,10 @@ import '../styles/globals.css'
 import '../styles/navbar.css'
 import '../styles/mediaqueries.css'
 
-const FairRate = ({ Component, pageProps }) => {
+const FairRateApp = ({ Component, pageProps }) => {
+
   return (
-    <Provider
+    <AuthProvider
       options={{ clientMaxAge: 0, keepAlive: 1 }}
       session={pageProps.session} >
 
@@ -17,8 +18,8 @@ const FairRate = ({ Component, pageProps }) => {
         <Component {...pageProps} />
       </AppWrapper>
 
-    </Provider>
+    </AuthProvider>
   )
 }
 
-export default FairRate
+export default FairRateApp
