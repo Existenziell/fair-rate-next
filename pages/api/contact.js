@@ -5,7 +5,7 @@
 
 import { connectToDatabase } from "../../lib/mongodb"
 import { getSession } from 'next-auth/client'
-const { ObjectId } = require('mongodb')
+import { ObjectId } from 'mongodb'
 
 export default async (req, res) => {
 

@@ -2,7 +2,8 @@ import { useSession, getSession, signOut } from 'next-auth/client'
 import { connectToDatabase } from "../lib/mongodb"
 import Image from 'next/image'
 import Main from '../components/Main'
-const { ObjectId } = require('mongodb')
+import PlaidConnect from '../components/PlaidConnect'
+import { ObjectId } from 'mongodb'
 
 const Account = (props) => {
 
@@ -42,6 +43,9 @@ const Account = (props) => {
                 <div>
                   <h1 className="mb-2">Welcome {session.user.name}</h1>
                   <p className="mb-8">{session.user.email}</p>
+                  <div className="">
+                    <PlaidConnect />
+                  </div>
                 </div>
               </div>
             }

@@ -57,7 +57,7 @@ export default function OnboardingForm() {
           }
         })
         res.status === 200 ?
-          Router.push('/approved') :
+          Router.push('/success') :
           setError(res.statusText)
       } catch (error) {
         setError(error.message)
@@ -67,7 +67,7 @@ export default function OnboardingForm() {
 
   return (
     <Main title='Apply' titleSuffix={true}>
-      <div className='flex flex-col items-center justify-center my-16 px-4 md:px-8 min-h-full relative'>
+      <div className='flex flex-col items-center justify-center my-16 px-4 md:px-8 relative'>
 
         <div className="w-full md:w-4/5 lg:w-1/2 mt-8">
           <form className="flex flex-col items-center w-full text-center" onSubmit={handleSubmit} >

@@ -21,9 +21,11 @@
     "next": "latest",
     "next-auth": "^3.4.1",
     "next-seo": "^4.19.0",
+    "plaid": "^8.1.6",
     "postcss": "^8.1.10",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
+    "react-plaid-link": "^3.1.0",
     "sharp": "^0.26.3",
     "tailwindcss": "^2.0.2"
   }

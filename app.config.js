@@ -10,6 +10,12 @@ const mailSettings = {
   recipientMail: process.env.NEXT_MAIL_RECIPIENT
 }
 
+const plaidSettings = {
+  clientID: process.env.PLAID_CLIENT_ID,
+  secret: process.env.PLAID_SECRET,
+  secretSandbox: process.env.PLAID_SECRET_SANDBOX,
+}
+
 const config = {
   // Local Dev
   development: {
@@ -21,6 +27,7 @@ const config = {
       url: process.env.NEXT_DEV_API_URL,
     },
     mail: { ...mailSettings },
+    plaid: { ...plaidSettings },
     map: {
       apiKey: process.env.NEXT_GOOGLE_MAPS_API_KEY
     },
@@ -35,6 +42,7 @@ const config = {
       url: process.env.NEXT_PROD_API_URL,
     },
     mail: { ...mailSettings },
+    plaid: { ...plaidSettings },
     map: {
       apiKey: process.env.NEXT_GOOGLE_MAPS_API_KEY
     },
@@ -49,6 +57,7 @@ const config = {
       url: process.env.NEXT_DEV_API_URL,
     },
     mail: { ...mailSettings },
+    plaid: { ...plaidSettings },
     map: {
       apiKey: process.env.NEXT_GOOGLE_MAPS_API_KEY
     },

@@ -6,7 +6,8 @@ const Apply = () => {
   const [onboardingData, setOnboardingData] = useState()
   useEffect(() => {
     const onboardingRaw = JSON.parse(localStorage.getItem('fairRateOnboarding'))
-    // If we know the firstname, trigger resume (where user left off last time)
+    // If we know the firstname, greet user
+    // ToDo: Trigger 'resume form' (where user left off last time)
     if (onboardingRaw) {
       setOnboardingData(onboardingRaw)
     }
@@ -14,7 +15,7 @@ const Apply = () => {
 
   return (
     <Main title='Onboard' titleSuffix={true}>
-      <div className='flex flex-col items-center justify-center my-16 px-4 md:px-8 min-h-full relative'>
+      <div className='flex flex-col items-center justify-center my-16 px-4 md:px-8 relative'>
         {onboardingData ?
           <h1 className="text-center mb-8">Welcome back, {onboardingData.firstName}</h1>
           :

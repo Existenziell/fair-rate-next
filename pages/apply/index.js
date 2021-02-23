@@ -3,7 +3,7 @@ import Main from '../../components/Main'
 
 const Apply = () => (
   <Main title='Apply' titleSuffix={true}>
-    <div className='flex flex-col items-center justify-center my-16 px-4 md:px-8 min-h-full relative'>
+    <div className='flex flex-col items-center justify-center my-16 px-4 md:px-8 relative'>
       <h1 className="mb-16 text-center">Uniform Residential Loan Application</h1>
       <div className="text-justify px-8 w-full lg:w-1/2">
         <p className="mb-8">This application is designed to be completed by the applicant(s) with the Lender’s assistance.</p>
