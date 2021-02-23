@@ -6,7 +6,7 @@ Mobile-first approach with min-width
 
 /* 
 * This applies from 768px onwards (iPads, Tablets) 
-* TailwindCSS corresponding prop perfix: md
+* TailwindCSS corresponding prop perfix: 'md'
 */
 @media (min-width: 768px) {
   
@@ -21,7 +21,7 @@ Mobile-first approach with min-width
 
 /* 
 * This applies from 1024px onwards (Small screens, laptops) 
-* TailwindCSS corresponding prop perfix: lg
+* TailwindCSS corresponding prop perfix: 'lg'
 */
 @media (min-width: 1024px) {
   
@@ -33,14 +33,14 @@ Mobile-first approach with min-width
     font-size: 1.75rem;
   }
 
-  .button.promo.icon {
+  .button.promo {
     width: 380px !important;
   }
 }
 
 /* 
 * This applies from 1280px onwards (Desktops, large screens )
-* TailwindCSS corresponding prop perfix: xl
+* TailwindCSS corresponding prop perfix: 'xl'
 */
 @media (min-width: 1280px) {
   
