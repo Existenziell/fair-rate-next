@@ -42,8 +42,6 @@ export default function ContactForm() {
     <div className="w-full md:w-4/5 lg:w-1/2 mt-8">
       <form className="flex flex-col items-center w-full text-center" onSubmit={handleSubmit}>
 
-        <h1>Contact us</h1>
-
         <TextInput
           value={formData.name}
           name={"name"}
