@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Router, { useRouter } from 'next/router'
+import Link from 'next/link'
 import Main from '../../components/Main'
 import Step1 from '../../components/form/apply/Step1'
 import Step2 from '../../components/form/apply/Step2'
@@ -31,11 +32,6 @@ export default function ApplyForm() {
       router.push(`/apply/${parseInt(step) + 1}`)
       e.preventDefault()
     }
-  }
-
-  const previousStep = (e) => {
-    router.push(`/apply/${step - 1}`)
-    e.preventDefault()
   }
 
   const handleSubmit = async (e) => {
@@ -100,11 +96,13 @@ export default function ApplyForm() {
               ? (
                 <div className="mt-8">
                   {step > 1 &&
-                    <a onClick={previousStep} className="transition-all	cursor-pointer block absolute w-16 left-8 -top-8 text-gray-400 hover:text-gray-600">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                      </svg>
-                    </a>
+                    <Link href={`/apply/${step - 1}`}>
+                      <a className="transition-all	cursor-pointer block absolute w-16 left-8 -top-8 text-gray-400 hover:text-gray-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                        </svg>
+                      </a>
+                    </Link>
                   }
                   {step < totalSteps ?
                     <input type="submit" name="next" onClick={nextStep} value="Next" className="button primary" />
