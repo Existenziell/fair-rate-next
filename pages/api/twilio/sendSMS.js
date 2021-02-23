@@ -22,10 +22,9 @@ export default async (req, res) => {
     body: req.body.message,
   })
     .then(() => {
-      res.send(JSON.stringify({ success: true }))
+      return res.send(JSON.stringify({ success: true }))
     })
     .catch((err) => {
-      console.log(err)
-      res.send(JSON.stringify({ success: false }))
+      return res.send(JSON.stringify({ success: false }))
     })
 }
