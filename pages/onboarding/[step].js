@@ -30,7 +30,6 @@ export default function OnboardingForm() {
   const nextStep = (e) => {
     const form = document.forms[0]
     if (form.checkValidity()) {
-      localStorage.setItem("fairRateOnboarding", JSON.stringify(formData))
       router.push(`/onboarding/${parseInt(step) + 1}`)
       e.preventDefault()
     }
@@ -42,6 +41,7 @@ export default function OnboardingForm() {
   }
 
   const handleSubmit = async (e) => {
+    localStorage.setItem("fairRateOnboarding", JSON.stringify(formData))
     const form = document.forms[0]
     if (form.checkValidity()) {
       e.preventDefault()
