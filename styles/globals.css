@@ -36,6 +36,13 @@ a:hover {
   transition: color 0.2s ease-in-out;
 }
 
+p > a {
+  border-bottom: 1px dotted var(--color-brand);
+}
+
+p > a:hover {
+  border-bottom: none;
+}
 
 /* Remove blue background on Chrome autocomplete */
 input:-webkit-autofill,
@@ -54,6 +61,7 @@ select:-webkit-autofill:focus {
 * Button
 */
 .button {
+  font-family: Lato, 'sans serif';
   cursor: pointer;
   border: 0;
   outline: 0;

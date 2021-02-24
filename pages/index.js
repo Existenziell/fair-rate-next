@@ -16,7 +16,7 @@ export default function Home() {
             Get the right home loan at a great rate
           </h1>
 
-          <h2 className="mt-8 mb-16 text-center sm:w-1/3 md:w-2/5 p-4 bg-opacity-60 bg-white">
+          <h2 className="mt-8 mb-16 text-center w-2/3 md:w-2/5 p-4 bg-opacity-60 bg-white">
             Compare, choose &amp; settle with America’s number 1 online home loan platform
           </h2>
 

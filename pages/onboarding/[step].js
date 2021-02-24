@@ -67,7 +67,7 @@ export default function OnboardingForm() {
 
   return (
     <Main title='Apply' titleSuffix={true}>
-      <div className='flex flex-col items-center justify-center my-16 px-4 md:px-8 relative'>
+      <div className='flex flex-col items-center justify-center my-16 px-8 md:px-16 relative'>
 
         <div className="w-full md:w-4/5 lg:w-1/2 mt-8">
           <form className="flex flex-col items-center w-full text-center" onSubmit={handleSubmit} >
@@ -111,9 +111,9 @@ export default function OnboardingForm() {
               ? (
                 <div className="mt-8">
                   {step > 1 &&
-                    <a onClick={previousStep} className="transition-all	cursor-pointer block absolute w-16 left-8 -top-8 text-gray-200 hover:text-gray-500">
+                    <a onClick={previousStep} className="cursor-pointer block absolute w-16 left-8 -top-8 text-gray-200 hover:text-gray-500 transition-all">
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                       </svg>
                     </a>
                   }

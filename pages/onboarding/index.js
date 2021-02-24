@@ -15,7 +15,7 @@ const Apply = () => {
 
   return (
     <Main title='Onboard' titleSuffix={true}>
-      <div className='flex flex-col items-center justify-center my-16 px-4 md:px-8 relative'>
+      <div className='flex flex-col items-center justify-center my-16 px-8 md:px-16 relative'>
         {onboardingData ?
           <h1 className="text-center mb-8">Welcome back, {onboardingData.firstName}</h1>
           :
