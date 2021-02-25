@@ -20,8 +20,17 @@ export default function Home() {
             Compare, choose &amp; settle with America’s number 1 online home loan platform
           </h2>
 
-          <Link href="/apply">
+          <Link href="/onboarding">
             <motion.a className="mb-4"
+              initial={{ x: -100, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: 0.8, duration: 0.6 }} >
+              <Button text="I want to buy a home" modifier="primary promo" icon='house' size={320} />
+            </motion.a>
+          </Link>
+
+          <Link href="/apply">
+            <motion.a
               initial={{ x: 100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.6 }} >
@@ -29,14 +38,6 @@ export default function Home() {
             </motion.a>
           </Link>
 
-          <Link href="/onboarding">
-            <motion.a
-              initial={{ x: -100, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ delay: 0.8, duration: 0.6 }} >
-              <Button text="I want to buy a home" modifier="primary promo" icon='house' size={320} />
-            </motion.a>
-          </Link>
         </div>
       </Main>
     </>
