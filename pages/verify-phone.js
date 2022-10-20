@@ -43,7 +43,7 @@ export default function verifyPhone() {
       })
       res.status === 200 ?
         Router.push(`/verified`) :
-        console.log(res.statusText)
+        // console.log(res.statusText)
     } else {
       // console.log(`Error: otp: ${otp} | userOtP: ${userOtp} | otp: ${typeof (otp)} | userOtP: ${typeof (userOtp)}`)
     }
