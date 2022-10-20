@@ -8,7 +8,7 @@ email: bauer.christof@gmail.com
 ----------------------------------------------------------*/
 
 :root {
-  --color-brand: rgb(199, 21, 133); /* #C71585 */
+  --color-brand: #5c9ded;
 }
 
 @tailwind base;

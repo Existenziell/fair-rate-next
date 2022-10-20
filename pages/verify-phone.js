@@ -1,4 +1,4 @@
-import { getSession, useSession, signIn } from 'next-auth/client'
+import { useSession, signIn } from 'next-auth/client'
 import { useState } from 'react'
 import Link from 'next/link'
 import TelInput from '../components/form/TelInput'

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useSession } from 'next-auth/client'
 import Router, { useRouter } from 'next/router'
 import Main from '../../components/Main'
 import Step1 from '../../components/form/onboarding/Step1'
@@ -17,8 +18,7 @@ export default function OnboardingForm() {
   const [formButtonDisabled, setFormButtonDisabled] = useState(false)
   const totalSteps = 8
   const [error, setError] = useState(false)
-  const [phoneValidated, setPhoneValidated] = useState(false)
-
+  const [session] = useSession()
   const router = useRouter()
   const step = parseInt(router.query.step)
 
@@ -56,9 +56,18 @@ export default function OnboardingForm() {
             "Content-Type": "application/json"
           }
         })
-        res.status === 200 ?
-          Router.push('/verify-phone') :
+        if (res.status === 200) {
+          // If user already added phone number, redirect directly to account dashboard
+          // console.log(session.phone);
+          if (session?.phone) {
+            // Router.push('/account')
+          } else {
+            Router.push('/verify-phone')
+          }
+        }
+        else {
           setError(res.statusText)
+        }
       } catch (error) {
         setError(error.message)
       }

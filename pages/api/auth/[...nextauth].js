@@ -1,6 +1,8 @@
+import { connectToDatabase } from '../../../lib/mongodb'
 import NextAuth from "next-auth"
 import Providers from "next-auth/providers"
 import config from '../../../app.config'
+import { ObjectId } from 'mongodb'
 
 // For more information on each option (and a full list of options) go to
 // https://next-auth.js.org/configuration/options
@@ -106,8 +108,14 @@ export default NextAuth({
     // async session(session, user) { return session },
     // async jwt(token, user, account, profile, isNewUser) { return token }
     session: async (session, user) => {
-      // Add mongodb id from current user to session 
+      // Add mongodb id and phone number from current user to session object
+      // const { db } = await connectToDatabase()
+      // const dbUser = await db
+      //   .collection("users")
+      //   .findOne(ObjectId(user.id))
       session.user.id = user.id
+      // session.user.phone = dbUser.phone
+
       return Promise.resolve(session)
     }
   },

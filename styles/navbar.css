@@ -1,9 +1,5 @@
 /* https://www.aleksandrhovhannisyan.com/blog/responsive-navbar-without-bootstrap/ */
 
-:root {
-  --color-brand: rgb(199, 21, 133); /* #C71585 */
-}
-
 .navbar-link.active {
   color: var(--color-brand);
 }

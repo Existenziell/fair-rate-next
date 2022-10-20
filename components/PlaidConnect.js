@@ -41,6 +41,14 @@ const Link = (props) => {
 
     // Handle response ... save token... etc...
     // console.log("We have an access_token!", accessToken.access_token)
+
+    // Save accessToken to DB 
+    const res = await fetch('/api/plaid/save_access_token', {
+      method: "post",
+      body: JSON.stringify(accessToken),
+      headers: { "Content-Type": "application/json" }
+    })
+
     Router.push('/approved')
   }, [])
 

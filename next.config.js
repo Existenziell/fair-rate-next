@@ -9,4 +9,7 @@ module.exports = {
       'media-exp1.licdn.com',
     ]
   },
+  future: {
+    webpack5: true,
+  },
 }

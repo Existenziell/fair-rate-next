@@ -4,7 +4,7 @@
 **
 **  Call /item/public_token/exchange to obtain an access_token. 
 **  The access_token uniquely identifies an Item and is a required argument for most Plaid API endpoints. 
-**  ToDo: Scurely store the access_token in order to make API requests for that Item.
+**  ToDo: Securely store the access_token in order to make API requests for that Item.
 **/
 
 import plaid from 'plaid'
